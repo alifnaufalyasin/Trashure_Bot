@@ -17,10 +17,10 @@ function initializeLiff(myLiffId) {
       document.getElementById("btnSubmit").addEventListener("click", (e) => {
         e.preventDefault()
         let data = {}
-        data.email = document.getElementById("inputEmail")
-        data.password = document.getElementById("inputPassword")
-        data.nama = document.getElementById("inputNama")
-        data.no_telp = document.getElementById("inputNomor")
+        data.email = document.getElementById("inputEmail").value
+        data.password = document.getElementById("inputPassword").value
+        data.nama = document.getElementById("inputNama").value
+        data.no_telp = document.getElementById("inputNomor").value
         axios({
           url: "https://5ab20e50db87.ngrok.io/api/admin/registrasi",
           method: "POST",
