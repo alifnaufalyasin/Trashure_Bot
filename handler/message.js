@@ -52,12 +52,17 @@ async function handleMessage(Context) {
           loginHandle(message.text.split(' '),Context, userId)
           break;
       default :
-        Context.reply([
-          {
-            type: "text",
-            text: 'Silahkan Ketik "Menu" atau buka tab dibawah'
-          }
-        ]);
+        if (message.text.match(/login/g)){
+          loginHandle(message.text.split(' '),Context, userId)
+        }else{
+          Context.reply([
+            {
+              type: "text",
+              text: 'Silahkan Ketik "Menu" atau buka tab dibawah'
+            }
+          ]);
+        }
+        break;
     }
   }
 }
