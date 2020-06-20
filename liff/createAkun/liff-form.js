@@ -33,7 +33,7 @@ function initializeLiff(myLiffId) {
             .sendMessages([
               {
                 type: "text",
-                text: "Pesanan Diterima",
+                text: "Akun berhasil dibuat",
               },
             ])
             .then(() => {
