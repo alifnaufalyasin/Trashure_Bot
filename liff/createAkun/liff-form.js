@@ -1,7 +1,7 @@
-window.onload = function() {
-  let myLiffId = "1654371439-2yo0m1Ag";
-  initializeLiff(myLiffId);
-};
+window.onload = function () {
+  let myLiffId = "1654371439-2yo0m1Ag"
+  initializeLiff(myLiffId)
+}
 
 /**
  * Initialize LIFF
@@ -10,43 +10,77 @@ window.onload = function() {
 function initializeLiff(myLiffId) {
   liff
     .init({
-      liffId: myLiffId
+      liffId: myLiffId,
     })
     .then(async () => {
-      await getProfile();
-      document.getElementById("btnSubmit").addEventListener("click", () => {
-        liff.sendMessages([
-          {
-            type:'text',
-            text:'Pesanan Diterima'
-          }
-        ])
-        .then(() => {
-          console.log('message sent');
-          liff.closeWindow();
+      await getProfile()
+      document.getElementById("btnSubmit").addEventListener("click", (e) => {
+        e.preventDefault()
+        let data = {}
+        data.email = document.getElementById("inputEmail")
+        data.password = document.getElementById("inputPassword")
+        data.nama = document.getElementById("inputNama")
+        data.no_telp = document.getElementById("inputNomor")
+        axios({
+          url: "http://rpl-inventory.herokuapp.com//api/admin/registrasi",
+          method: "POST",
+          data: data,
+        })
+        .then(async (response) => {
+          alert('proses')
+          console.log(response.data)
+          liff
+            .sendMessages([
+              {
+                type: "text",
+                text: "Pesanan Diterima",
+              },
+            ])
+            .then(() => {
+              console.log("message sent")
+              liff.closeWindow()
+            })
+            .catch((err) => {
+              alert(err)
+            })
         })
         .catch((err) => {
-          console.log('error', err);
-        });          
+          liff
+            .sendMessages([
+              {
+                type: "text",
+                text: "Error...",
+              },
+              {
+                type: "text",
+                text: err.response.data.message,
+              },
+            ])
+            .then(() => {
+              console.log("message sent")
+              liff.closeWindow()
+            })
+            .catch((err) => {
+              alert(err)
+            })
+        })
       })
     })
-    .catch(err => {
-      window.location = "./form.html";
-    });
+    .catch((err) => {
+      window.location = "./form.html"
+    })
 }
-
 
 const getProfile = () => {
   liff
     .getProfile()
-    .then(profile => {
+    .then((profile) => {
       // document.getElementById("btnSubmit").style.visibility = "visible";
       document.getElementById("displayNameField").textContent =
-        "Hai, " + profile.displayName;
-      return profile;
+        "Hai, " + profile.displayName
+      return profile
     })
-    .catch(e => {
-      console.log(e);
-    });
-};
-
+    .catch((e) => {
+      console.log(e)
+    })
+}

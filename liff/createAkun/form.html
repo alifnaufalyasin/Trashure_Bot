@@ -15,8 +15,8 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-
-    <title>Form Informasi Pengguna</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+    <title>Form Create Akun</title>
   </head>
   <body>
     <div class="container-fluid">
@@ -24,7 +24,7 @@
       <!-- enctype='application/x-www-form-urlencoded' -->
       <form
         id="formDetails"
-        action="/addPesanan"
+        action="/"
         method="POST"
         enctype="application/x-www-form-urlencoded"
       >
@@ -67,7 +67,7 @@
             type="password"
             name="Password"
             class="form-control"
-            id="inputPassord"
+            id="inputPassword"
             placeholder="Password"
             required
           />
