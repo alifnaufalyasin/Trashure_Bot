@@ -1,5 +1,5 @@
 window.onload = function() {
-  let myLiffId = "1653940376-OjqwPeVm";
+  let myLiffId = "1654371439-2yo0m1Ag";
   initializeLiff(myLiffId);
 };
 
@@ -41,7 +41,6 @@ const getProfile = () => {
     .getProfile()
     .then(profile => {
       // document.getElementById("btnSubmit").style.visibility = "visible";
-      document.getElementById("userId").value = profile.userId;
       document.getElementById("displayNameField").textContent =
         "Hai, " + profile.displayName;
       return profile;
