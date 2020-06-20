@@ -33,10 +33,6 @@ async function handleMessage(Context) {
         Context.reply([
           {
             type: "text",
-            text: "Maaf kak aku belum ngerti"
-          },
-          {
-            type: "text",
             text: 'Silahkan Ketik "Menu" atau buka tab dibawah'
           }
         ]);
