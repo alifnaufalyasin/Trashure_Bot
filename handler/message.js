@@ -1,3 +1,5 @@
+//flex
+const createAkunFlex = require('../flex/createAkun')
 
 async function handleMessage(Context) {
   const message = Context.event.message;
@@ -18,11 +20,12 @@ async function handleMessage(Context) {
         Context.reply([
           {
             type: "text",
-            text: `Sudah punya akun? ketik "login <email> <password>"`
+            text: `Sudah punya akun? ketik "login <email> (spasi) <password>"`
           },
           {
-            type: "text",
-            text: 'Belum punya akun?'
+            type: "flex",
+            altText: "Create Akun",
+            contents: createAkunFlex
           }
         ]);
         break;
