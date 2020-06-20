@@ -5,22 +5,25 @@ async function login(arrText, Context, userId) {
   let data = {}
   data.email = arrText[1]
   data.password = arrText[2]
+  
   axios({
     url: "https://5ab20e50db87.ngrok.io/api/admin/login",
     method: "POST",
     data: data,
   })
   .then(async (response) => {
-    if(response.success){
+    // console.log(response)
+    if(response.data.success){
       let token = {}
       token.userId = userId
-      token.token = response.data.token
+      token.token = response.data.data.token
       axios({
         url: "https://5ab20e50db87.ngrok.io/api/lineBot/set",
         method: "POST",
         data: token,
       })
-      const flexOrganisasi = await setFlexOrg(response.data.organisasi)
+      const flexOrganisasi = await setFlexOrg(response.data.data.organisasi)
+      console.log(flexOrganisasi);
       Context.reply([
         {
           type: "text",
@@ -28,7 +31,7 @@ async function login(arrText, Context, userId) {
         },
         {
           type: "flex",
-          altText: "Carousel Organisasi",
+          altText: "List Organisasi",
           contents: flexOrganisasi
         }
       ])
@@ -36,7 +39,7 @@ async function login(arrText, Context, userId) {
       Context.reply([
         {
           type: "text",
-          text: response.message
+          text: response.data.message
         }
       ])
     }

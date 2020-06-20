@@ -16,8 +16,7 @@ async function handleMessage(Context) {
       text: "apa tuh"
     }]);
   } else {
-    // console.log(userId);
-
+    console.log(userId);
     switch (message.text.toLowerCase()) {
       case "login" : 
         Context.reply([
@@ -48,11 +47,8 @@ async function handleMessage(Context) {
             }
           ]);
           break;
-        case (text) => {text.match(/login/g)}:
-          loginHandle(message.text.split(' '),Context, userId)
-          break;
       default :
-        if (message.text.match(/login/g)){
+        if (message.text.toLowerCase().match(/login/g)){
           loginHandle(message.text.split(' '),Context, userId)
         }else{
           Context.reply([

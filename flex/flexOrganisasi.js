@@ -1,6 +1,6 @@
 function flexUtama(organisasi) {
   let bubble = []
-  organisasi.map((item,index)=>{
+  organisasi.map((item, index) => {
     const bubbleItem = {
       type: "bubble",
       hero: {
@@ -46,7 +46,7 @@ function flexUtama(organisasi) {
             action: {
               type: "postback",
               label: "Pilih",
-              data: "organisasi="+item.id_organisasi,
+              data: "organisasi=" + item.id_organisasi,
             },
             color: "#DD9614",
             height: "sm",
@@ -61,7 +61,7 @@ function flexUtama(organisasi) {
     }
     bubble.push(bubbleItem)
   })
-  
+
   const bubbleAkhir = {
     type: "bubble",
     direction: "ltr",
@@ -99,7 +99,7 @@ function flexUtama(organisasi) {
           action: {
             type: "postback",
             label: "Join Organisasi",
-            data: "listall",
+            data: "listOrganisasi",
           },
           color: "#DD9614",
           margin: "sm",
@@ -113,11 +113,10 @@ function flexUtama(organisasi) {
 
   const flex = {
     type: "carousel",
-    contents: bubble
+    contents: bubble,
   }
 
   return flex
 }
-    
 
 module.exports = flexUtama
