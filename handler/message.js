@@ -20,20 +20,17 @@ async function handleMessage(Context) {
 
     switch (message.text.toLowerCase()) {
       case "login" : 
-        if (message.text.split(' ').length > 2) loginHandle(message.text.split(' '),Context, userId)
-        else{
-          Context.reply([
-            {
-              type: "text",
-              text: `Sudah punya akun? ketik "login <email> (spasi) <password>"`
-            },
-            {
-              type: "flex",
-              altText: "Create Akun",
-              contents: createAkunFlex
-            }
-          ]);
-        }
+        Context.reply([
+          {
+            type: "text",
+            text: `Sudah punya akun? ketik "login <email> (spasi) <password>"`
+          },
+          {
+            type: "flex",
+            altText: "Create Akun",
+            contents: createAkunFlex
+          }
+        ]);
         break;
       case "akun berhasil dibuat" :
         Context.reply([
@@ -50,6 +47,9 @@ async function handleMessage(Context) {
               text: `Sudah punya akun? ketik "login <email> (spasi) <password>"`
             }
           ]);
+          break;
+        case (text) => {text.match(/login/g)}:
+          loginHandle(message.text.split(' '),Context, userId)
           break;
       default :
         Context.reply([
