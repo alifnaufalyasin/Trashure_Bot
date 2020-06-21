@@ -5,7 +5,7 @@ function pilihOrganisasi(id_organisasi, userId) {
   data.userId = userId
   data.id_organisasi = id_organisasi
   axios({
-    url: "https://5ab20e50db87.ngrok.io/api/lineBot/set",
+    url: "https://rpl-inventory.herokuapp.com/api/lineBot/set",
     method: "POST",
     data: data,
   })

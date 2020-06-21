@@ -7,7 +7,7 @@ async function login(arrText, Context, userId) {
   data.password = arrText[2]
   
   axios({
-    url: "https://5ab20e50db87.ngrok.io/api/admin/login",
+    url: "https://rpl-inventory.herokuapp.com/api/admin/login",
     method: "POST",
     data: data,
   })
@@ -18,7 +18,7 @@ async function login(arrText, Context, userId) {
       token.userId = userId
       token.token = response.data.data.token
       axios({
-        url: "https://5ab20e50db87.ngrok.io/api/lineBot/set",
+        url: "https://rpl-inventory.herokuapp.com/api/lineBot/set",
         method: "POST",
         data: token,
       })
