@@ -80,33 +80,33 @@ function flexUtama(organisasi) {
         },
       ],
     },
-    footer: {
-      type: "box",
-      layout: "vertical",
-      contents: [
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
         {
-          type: "button",
-          action: {
-            type: "uri",
-            label: "Daftar Organisasi",
-            uri: "https://google.com",
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "Daftar Organisasi",
+            "uri": "https://linecorp.com"
           },
-          color: "#DD9614",
-          style: "primary",
+          "color": "#DD9614",
+          "style": "primary"
         },
         {
-          type: "button",
-          action: {
-            type: "postback",
-            label: "Join Organisasi",
-            data: "listOrganisasi",
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "Join Organisasi",
+            "data": "listOrganisasi"
           },
-          color: "#DD9614",
-          margin: "sm",
-          style: "primary",
-        },
-      ],
-    },
+          "color": "#DD9614",
+          "margin": "sm",
+          "style": "primary"
+        }
+      ]
+    }
   }
 
   bubble.push(bubbleAkhir)
