@@ -9,7 +9,7 @@ async function handlePostback(Context) {
   switch (data[0]) {
     case 'organisasi':
       const id_organisasi = data[1]
-      await pilihOrganisasi(id_organisasi, userId)
+      await pilihOrganisasi(id_organisasi, userId, Context)
       break;
     default:
       console.log('gatau')
