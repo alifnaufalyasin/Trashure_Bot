@@ -16,6 +16,7 @@ async function login(arrText, Context, userId) {
     if(response.data.success){
       let token = {}
       token.userId = userId
+      token.id_admin = response.data.data.id_admin
       token.token = response.data.data.token
       axios({
         url: "https://rpl-inventory.herokuapp.com/api/lineBot/set",

@@ -11,6 +11,9 @@ async function handlePostback(Context) {
       const id_organisasi = data[1]
       await pilihOrganisasi(id_organisasi, userId, Context)
       break;
+    case 'listOrganisasi':
+
+      break;
     default:
       console.log('gatau')
       break;
