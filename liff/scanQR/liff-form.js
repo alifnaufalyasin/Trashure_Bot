@@ -12,16 +12,16 @@ function initializeLiff(myLiffId) {
     .init({
       liffId: myLiffId,
     })
-    .then(async () => {
-      const profile = await liff.getProfile()
+    .then(() => {
+      const profile = liff.getProfile()
       let data = {}
       data.userId = profile.userId
-      const dataToken = await axios({
+      const dataToken = axios({
         url: "https://rpl-inventory.herokuapp.com/api/lineBot",
         method: "GET",
         data: data,
       })
-      liff.scanCode().then(async (result) => {
+      liff.scanCode().then((result) => {
         const kode = result.value
         const data2 = { kode }
         axios({
@@ -32,7 +32,7 @@ function initializeLiff(myLiffId) {
           },
           data: data2,
         })
-          .then(async (response) => {
+          .then((response) => {
             liff
               .sendMessages([
                 {
