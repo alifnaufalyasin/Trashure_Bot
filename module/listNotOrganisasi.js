@@ -20,8 +20,8 @@ function listNotOrganisasi(Context, userId) {
         },
       })
       .then(async (response2) => {
-        if(response.data.success){
-          const flexNotOrganisasi = await setFlexOrg(response.data.data.organisasi)
+        if(response2.data.success){
+          const flexNotOrganisasi = await setFlexOrg(response2.data.data.organisasi)
           Context.reply([
             {
               type: "text",
@@ -37,12 +37,13 @@ function listNotOrganisasi(Context, userId) {
           Context.reply([
             {
               type: "text",
-              text: response.data.message
+              text: response2.data.message
             }
           ])
         }
       })
-      .catch((err) => {
+      .catch((err2) => {
+        console.log(err2)
         Context.reply([
           {
             type: "text",
