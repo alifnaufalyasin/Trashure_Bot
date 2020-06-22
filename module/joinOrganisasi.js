@@ -40,6 +40,10 @@ function joinOrganisasi(arrText, Context, userId) {
               Context.reply([
                 {
                   type: "text",
+                  text: "Berhasil bergabung dengan "+response3.data.data.nama
+                },
+                {
+                  type: "text",
                   text: "Berikut adalah barang yang ada pada "+response3.data.data.nama
                 },
                 {
