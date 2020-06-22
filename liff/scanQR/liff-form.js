@@ -13,7 +13,7 @@ function initializeLiff(myLiffId) {
       liffId: myLiffId,
     })
     .then(async () => {
-      const profile = await liff.getProfile()
+      const profile = liff.getContext()
       let data = {}
       data.userId = profile.userId
       const dataToken = await axios({
