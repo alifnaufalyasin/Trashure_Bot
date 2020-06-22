@@ -10,11 +10,15 @@ async function handlePostback(Context) {
   switch (data[0]) {
     case 'organisasi':
       const id_organisasi = data[1]
-      await pilihOrganisasi(id_organisasi, userId, Context)
+      await pilihOrganisasi(id_organisasi, userId, Context, status = 'admin')
       break;
     case 'listOrganisasi':
       await listNotOrganisasi(Context, userId)
       break;
+    case 'joinOrganisasi':
+      const id_organisasi = data[1]
+      await pilihOrganisasi(id_organisasi, userId, Context, status = 'other')
+      break;  
     default:
       console.log('gatau')
       break;

@@ -50,6 +50,8 @@ async function handleMessage(Context) {
       default :
         if (message.text.toLowerCase().match(/login/g)){
           loginHandle(message.text.split(' '),Context, userId)
+        }else if (message.text.toLowerCase().match(/organisasi/g)){
+
         }else{
           Context.reply([
             {

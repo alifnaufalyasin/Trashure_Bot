@@ -1,7 +1,7 @@
 const axios = require('axios');
 const setFlexBarang = require('../flex/flexBarang')
 
-function pilihOrganisasi(id_organisasi, userId, Context) {
+function pilihOrganisasi(id_organisasi, userId, Context, status) {
   let data = {}
   data.userId = userId
   data.id_organisasi = id_organisasi
@@ -11,7 +11,7 @@ function pilihOrganisasi(id_organisasi, userId, Context) {
     data: data,
   })
   .then(async (response) => {
-    if(response.data.success){
+    if(response.data.success && status == 'admin'){
       axios({
         url: "https://rpl-inventory.herokuapp.com/api/organisasi/"+response.data.data.id_organisasi,
         method: "GET",
@@ -50,6 +50,13 @@ function pilihOrganisasi(id_organisasi, userId, Context) {
           }
         ])
       })
+    }else if (response.data.success){
+      Context.reply([
+        {
+          type: "text",
+          text: `Masukkan password organisasi dengan ketik "Organisasi <password>"`
+        }
+      ])
     }else{
       Context.reply([
         {

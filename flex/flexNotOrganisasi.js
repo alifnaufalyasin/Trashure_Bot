@@ -46,7 +46,7 @@ function flexUtama(organisasi) {
             action: {
               type: "postback",
               label: "Join",
-              data: "joinorganisasi=" + item.id_organisasi,
+              data: "joinOrganisasi=" + item.id_organisasi,
             },
             color: "#DD9614",
             height: "sm",
