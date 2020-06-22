@@ -15,11 +15,11 @@ function initializeLiff(myLiffId) {
     .then(async () => {
       const profile = liff.getContext()
       const userId = profile.userId
-      let data = { userId }
+      // let data = { userId }
       axios({
         url: "https://rpl-inventory.herokuapp.com/api/lineBot",
         method: "GET",
-        data: data,
+        data: { userId },
       })
       .then((dataToken) => {
         liff.scanCode()
