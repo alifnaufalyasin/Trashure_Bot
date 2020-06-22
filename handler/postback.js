@@ -1,5 +1,5 @@
 const pilihOrganisasi = require("../module/pilihOrganisasi");
-const listNotOrganisasi = require("../module/listNotOrganisasiasi")
+const listNotOrganisasi = require("../module/listNotOrganisasi")
 
 async function handlePostback(Context) {
   let profileUser = await Context.getUserProfile()
