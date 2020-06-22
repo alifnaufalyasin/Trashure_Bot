@@ -10,10 +10,11 @@ function joinOrganisasi(arrText, Context, userId) {
   })
   .then(async (response) => {
     console.log('token get')
+    console.log(response)
     if(response.data.success){
       let data2 = {}
-      data2.password = arrText[1]
       data2.id_organisasi = response.data.data.id_organisasi
+      data2.password = arrText[1]
       axios({
         url: "https://rpl-inventory.herokuapp.com/api/organisasi",
         method: "POST",
