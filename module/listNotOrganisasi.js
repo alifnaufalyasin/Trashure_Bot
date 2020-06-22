@@ -3,11 +3,11 @@ const setFlexOrg = require('../flex/flexNotOrganisasi')
 
 
 function listNotOrganisasi(Context, userId) {
-  data = {userId}
+  // data = {userId}
   axios({
-    url: "https://rpl-inventory.herokuapp.com/api/lineBot",
+    url: "https://rpl-inventory.herokuapp.com/api/lineBot?userId="+userId,
     method: "GET",
-    data: data,
+    // data: data,
   })
   .then(async (response) => {
     if(response.data.success){

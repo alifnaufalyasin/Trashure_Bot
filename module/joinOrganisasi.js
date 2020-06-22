@@ -2,11 +2,11 @@ const axios = require('axios');
 const setFlexBarang = require('../flex/flexBarang')
 
 function joinOrganisasi(arrText, Context, userId) {
-  const data = {userId}
+  // const data = {userId}
   axios({
-    url: "https://rpl-inventory.herokuapp.com/api/lineBot",
+    url: "https://rpl-inventory.herokuapp.com/api/lineBot?userId="+userId,
     method: "GET",
-    data: data,
+    // data: data,
   })
   .then(async (response) => {
     console.log('token get')
