@@ -1,5 +1,5 @@
 window.onload = function() {
-  let myLiffId = "1654371439-2yo0m1Ag";
+  let myLiffId = "1654371439-ONAX01kB";
   initializeLiff(myLiffId);
 };
 
@@ -14,7 +14,7 @@ function initializeLiff(myLiffId) {
     })
     .then(() => {
       if (liff.isInClient()){
-        window.location = "./form.html"
+        window.location = "./scan.html"
       }else{
         window.location = "../index.html"
       }

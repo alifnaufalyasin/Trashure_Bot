@@ -13,27 +13,31 @@ function initializeLiff(myLiffId) {
       liffId: myLiffId,
     })
     .then(async () => {
-      await getProfile()
-      document.getElementById("btnSubmit").addEventListener("click", (e) => {
-        e.preventDefault()
-        let data = {}
-        data.email = document.getElementById("inputEmail").value
-        data.password = document.getElementById("inputPassword").value
-        data.nama = document.getElementById("inputNama").value
-        data.no_telp = document.getElementById("inputNomor").value
-        axios({
-          url: "https://5ab20e50db87.ngrok.io/api/admin/registrasi",
-          method: "POST",
+      const profile = await liff.getProfile()
+      let data = {}
+      data.userId = profile.userId
+      const dataToken = await axios({
+          url: "https://rpl-inventory.herokuapp.com/api/lineBot",
+          method: "GET",
           data: data,
         })
+      liff.scanCode().then(async result => {
+        const kode = result.value
+        const data2 = {kode}
+        axios({
+          url: "https://rpl-inventory.herokuapp.com/api/scanQR",
+          method: "POST",
+          headers: {
+            'Authorization': `Bearer ${dataToken.data.data.token}`
+          },
+          data: data2,
+        })
         .then(async (response) => {
-          alert('proses')
-          console.log(response.data)
           liff
             .sendMessages([
               {
                 type: "text",
-                text: "Akun berhasil dibuat",
+                text: "Berhasil scan barang "+response.data.data.nama,
               },
             ])
             .then(() => {
@@ -53,7 +57,7 @@ function initializeLiff(myLiffId) {
               },
               {
                 type: "text",
-                text: err.response.data.message,
+                text: err.data.data.message,
               },
             ])
             .then(() => {
@@ -65,22 +69,18 @@ function initializeLiff(myLiffId) {
             })
         })
       })
+      document.getElementById("btnSubmit").addEventListener("click", (e) => {
+        e.preventDefault()
+        let data = {}
+        data.email = document.getElementById("inputEmail").value
+        data.password = document.getElementById("inputPassword").value
+        data.nama = document.getElementById("inputNama").value
+        data.no_telp = document.getElementById("inputNomor").value
+        
+      })
     })
     .catch((err) => {
       window.location = "./form.html"
     })
 }
 
-const getProfile = () => {
-  liff
-    .getProfile()
-    .then((profile) => {
-      document.getElementById("btnSubmit").style.visibility = "visible";
-      document.getElementById("displayNameField").textContent =
-        "Hai, " + profile.displayName
-      return profile
-    })
-    .catch((e) => {
-      console.log(e)
-    })
-}
