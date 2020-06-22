@@ -14,11 +14,13 @@ function initializeLiff(myLiffId) {
     })
     .then(async () => {
       const profile = liff.getContext()
+      let data = {}
+      data.userId = profile.userId
       liff
         .sendMessages([
           {
             type: "text",
-            text: profile.userId,
+            text: data.userId,
           },
         ])
         .then(() => {
@@ -28,8 +30,6 @@ function initializeLiff(myLiffId) {
         .catch((err) => {
           alert(err)
         })
-      // let data = {}
-      // data.userId = profile.userId
       // axios({
       //   url: "https://rpl-inventory.herokuapp.com/api/lineBot",
       //   method: "GET",
