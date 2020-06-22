@@ -1,43 +1,43 @@
 const axios = require('axios');
-const setFlexBarang = require('../flex/flexBarang')
+const setFlexOrg = require('../flex/flexNotOrganisasi')
 
-function pilihOrganisasi(id_organisasi, userId, Context) {
-  let data = {}
-  data.userId = userId
-  data.id_organisasi = id_organisasi
+
+function listNotOrganisasi(Context, userId) {
+  data = {userId}
   axios({
-    url: "https://rpl-inventory.herokuapp.com/api/lineBot/set",
-    method: "POST",
+    url: "https://rpl-inventory.herokuapp.com/api/lineBot",
+    method: "GET",
     data: data,
   })
   .then(async (response) => {
     if(response.data.success){
+
       axios({
-        url: "https://rpl-inventory.herokuapp.com/api/organisasi/"+response.data.data.id_organisasi,
-        method: "GET",
+        url: "https://rpl-inventory.herokuapp.com/api/organisasi/not",
+        method: "POST",
         headers: {
           'Authorization': `Bearer ${response.data.data.token}`
         },
       })
       .then(async (response2) => {
-        if(response2.data.success){
-          const flexBarang = await setFlexBarang(response2.data.data.items)
+        if(response.data.success){
+          const flexNotOrganisasi = await setFlexOrg(response.data.data.organisasi)
           Context.reply([
             {
               type: "text",
-              text: "Berikut adalah barang yang ada pada "+response2.data.data.nama
+              text: "Pilih organisasi yang anda ingin join"
             },
             {
               type: "flex",
-              altText: "List Barang",
-              contents: flexBarang
+              altText: "List Organisasi",
+              contents: flexNotOrganisasi
             }
           ])
         }else{
           Context.reply([
             {
               type: "text",
-              text: response2.data.message
+              text: response.data.message
             }
           ])
         }
@@ -69,4 +69,4 @@ function pilihOrganisasi(id_organisasi, userId, Context) {
   })
 }
 
-module.exports = pilihOrganisasi
+module.exports = listNotOrganisasi
