@@ -51,6 +51,7 @@ function listNotOrganisasi(Context, userId) {
         ])
       })
     }else{
+      console.log(response.data.message)
       Context.reply([
         {
           type: "text",
@@ -60,6 +61,7 @@ function listNotOrganisasi(Context, userId) {
     }
   })
   .catch((err) => {
+    console.log(err)
     Context.reply([
       {
         type: "text",
