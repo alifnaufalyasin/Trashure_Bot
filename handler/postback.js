@@ -1,3 +1,4 @@
+//module
 const pilihOrganisasi = require("../module/pilihOrganisasi");
 const listNotOrganisasi = require("../module/listNotOrganisasi")
 
@@ -7,16 +8,17 @@ async function handlePostback(Context) {
 
   console.log(Context.event.postback)
   const data = Context.event.postback.data.split('=')
+  let id_organisasi
   switch (data[0]) {
     case 'organisasi':
-      const id_organisasi = data[1]
+      id_organisasi = data[1]
       await pilihOrganisasi(id_organisasi, userId, Context, status = 'admin')
       break;
     case 'listOrganisasi':
       await listNotOrganisasi(Context, userId)
       break;
     case 'joinOrganisasi':
-      const id_organisasi = data[1]
+      id_organisasi = data[1]
       await pilihOrganisasi(id_organisasi, userId, Context, status = 'other')
       break;  
     default:

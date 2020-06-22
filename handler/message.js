@@ -3,6 +3,7 @@ const createAkunFlex = require('../flex/createAkun')
 
 //module
 const loginHandle = require('../module/login')
+const joinHandle = require('../module/joinOrganisasi')
 
 async function handleMessage(Context) {
   const message = Context.event.message;
@@ -39,24 +40,16 @@ async function handleMessage(Context) {
           }
         ]);
         break;
-        case "akun berhasil dibuat" :
-          Context.reply([
-            {
-              type: "text",
-              text: `Sudah punya akun? ketik "login <email> (spasi) <password>"`
-            }
-          ]);
-          break;
       default :
         if (message.text.toLowerCase().match(/login/g)){
-          loginHandle(message.text.split(' '),Context, userId)
+          await loginHandle(message.text.split(' '), Context, userId)
         }else if (message.text.toLowerCase().match(/organisasi/g)){
-
+          await joinHandle(message.text.split(' '), Context, userId)
         }else{
           Context.reply([
             {
               type: "text",
-              text: 'Silahkan Ketik "Menu" atau buka tab dibawah'
+              text: 'Silahkan buka menu tab dibawah'
             }
           ]);
         }

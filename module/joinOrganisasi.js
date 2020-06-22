@@ -1,30 +1,30 @@
 const axios = require('axios');
 const setFlexBarang = require('../flex/flexBarang')
 
-function joinOrganisasi(id_organisasi, password, Context, status) {
-  let data = {}
-  data.password = password
-  data.id_organisasi = id_organisasi
+function joinOrganisasi(arrText, Context, userId) {
+  const data = {userId}
   axios({
-    url: "https://rpl-inventory.herokuapp.com/api/organisasi",
-    method: "POST",
+    url: "https://rpl-inventory.herokuapp.com/api/lineBot",
+    method: "GET",
     data: data,
   })
   .then(async (response) => {
     if(response.data.success){
-      const data2 = {userId}
+      let data2 = {}
+      data2.password = arrText[1]
+      data2.id_organisasi = response.data.data.id_organisasi
       axios({
-        url: "https://rpl-inventory.herokuapp.com/api/lineBot",
-        method: "GET",
+        url: "https://rpl-inventory.herokuapp.com/api/organisasi",
+        method: "POST",
         data: data2,
       })
       .then(async (response2) => {
         if(response2.data.success){
           axios({
-            url: "https://rpl-inventory.herokuapp.com/api/organisasi/"+response2.data.data.id_organisasi,
+            url: "https://rpl-inventory.herokuapp.com/api/organisasi/"+response.data.data.id_organisasi,
             method: "GET",
             headers: {
-              'Authorization': `Bearer ${response2.data.data.token}`
+              'Authorization': `Bearer ${response.data.data.token}`
             },
           })
           .then(async (response3) => {
