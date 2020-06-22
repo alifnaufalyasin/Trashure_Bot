@@ -21,7 +21,7 @@ function listNotOrganisasi(Context, userId) {
       })
       .then(async (response2) => {
         if(response2.data.success){
-          const flexNotOrganisasi = await setFlexOrg(response2.data.data.organisasi)
+          const flexNotOrganisasi = await setFlexOrg(response2.data.data)
           Context.reply([
             {
               type: "text",
