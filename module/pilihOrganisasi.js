@@ -42,11 +42,11 @@ function pilihOrganisasi(id_organisasi, userId, Context, status) {
           ])
         }
       })
-      .catch((err) => {
+      .catch((err2) => {
         Context.reply([
           {
             type: "text",
-            text: JSON.toString(err)
+            text: err2.data.message
           }
         ])
       })
@@ -70,7 +70,7 @@ function pilihOrganisasi(id_organisasi, userId, Context, status) {
     Context.reply([
       {
         type: "text",
-        text: JSON.toString(err)
+        text: err.data.message
       }
     ])
   })

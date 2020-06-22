@@ -10,7 +10,7 @@ function joinOrganisasi(arrText, Context, userId) {
   })
   .then(async (response) => {
     console.log('token get')
-    console.log(response)
+    console.log(response.data)
     if(response.data.success){
       let data2 = {}
       data2.id_organisasi = response.data.data.id_organisasi
@@ -18,6 +18,9 @@ function joinOrganisasi(arrText, Context, userId) {
       axios({
         url: "https://rpl-inventory.herokuapp.com/api/organisasi",
         method: "POST",
+        headers: {
+          'Authorization': `Bearer ${response.data.data.token}`
+        },
         data: data2,
       })
       .then(async (response2) => {
@@ -59,7 +62,7 @@ function joinOrganisasi(arrText, Context, userId) {
             Context.reply([
               {
                 type: "text",
-                text: JSON.toString(err3)
+                text: err3.data.message
               }
             ])
           })
@@ -77,7 +80,7 @@ function joinOrganisasi(arrText, Context, userId) {
         Context.reply([
           {
             type: "text",
-            text: JSON.toString(err2)
+            text: err2.data.message
           }
         ])
       })
@@ -95,7 +98,7 @@ function joinOrganisasi(arrText, Context, userId) {
     Context.reply([
       {
         type: "text",
-        text: JSON.toString(err)
+        text: err.data.message
       }
     ])
   })
