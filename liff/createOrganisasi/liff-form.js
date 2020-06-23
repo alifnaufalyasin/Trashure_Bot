@@ -8,54 +8,6 @@ window.onload = function () {
  * @param {string} myLiffId The LIFF ID of the selected element
  */
 function initializeLiff(myLiffId) {
-  const flex = {
-    type: "carousel",
-    contents: [
-      {
-        type: "bubble",
-        direction: "ltr",
-        body: {
-          type: "box",
-          layout: "vertical",
-          spacing: "none",
-          margin: "none",
-          contents: [
-            {
-              type: "text",
-              text: "Tambah Barang",
-              size: "xl",
-              align: "center",
-              weight: "bold",
-              color: "#DD9614",
-            },
-            {
-              type: "separator",
-              color: "#A7A7A7",
-            },
-            {
-              type: "text",
-              text: "Klik tombol dibawah ini untuk menambahkan barang",
-              margin: "md",
-              align: "center",
-              weight: "regular",
-              wrap: true,
-            },
-            {
-              type: "button",
-              action: {
-                type: "postback",
-                label: "Tambah",
-                data: "addbarang",
-              },
-              color: "#DD9614",
-              margin: "md",
-              style: "primary",
-            },
-          ],
-        },
-      },
-    ],
-  }
 
   liff
     .init({
@@ -98,13 +50,51 @@ function initializeLiff(myLiffId) {
                     liff
                       .sendMessages([
                         {
-                          type: "text",
-                          text: "Error...",
-                        },
-                        {
                           type: "flex",
                           altText: "List Barang",
-                          contents: flex,
+                          contents: {
+                            type: "bubble",
+                            direction: "ltr",
+                            body: {
+                              type: "box",
+                              layout: "vertical",
+                              spacing: "none",
+                              margin: "none",
+                              contents: [
+                                {
+                                  type: "text",
+                                  text: "Tambah Barang",
+                                  size: "xl",
+                                  align: "center",
+                                  weight: "bold",
+                                  color: "#DD9614",
+                                },
+                                {
+                                  type: "separator",
+                                  color: "#A7A7A7",
+                                },
+                                {
+                                  type: "text",
+                                  text: "Klik tombol dibawah ini untuk menambahkan barang",
+                                  margin: "md",
+                                  align: "center",
+                                  weight: "regular",
+                                  wrap: true,
+                                },
+                                {
+                                  type: "button",
+                                  action: {
+                                    type: "postback",
+                                    label: "Tambah",
+                                    data: "addbarang",
+                                  },
+                                  color: "#DD9614",
+                                  margin: "md",
+                                  style: "primary",
+                                },
+                              ],
+                            },
+                          },
                         },
                       ])
                       .then(() => {
@@ -112,6 +102,7 @@ function initializeLiff(myLiffId) {
                         liff.closeWindow()
                       })
                       .catch((err4) => {
+                        console.log(err4)
                         alert(err4)
                       })
                   } else {
