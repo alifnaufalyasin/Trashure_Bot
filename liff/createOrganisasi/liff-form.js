@@ -110,10 +110,7 @@ function initializeLiff(myLiffId) {
                         alert(err4)
                       })
                   } else {
-                    let pesan = ''
-                    response.data.data.map((item,index)=>{
-                      return pesan += item.message + ', '
-                    })
+                    
                     liff
                       .sendMessages([
                         {
@@ -122,7 +119,7 @@ function initializeLiff(myLiffId) {
                         },
                         {
                           type: "text",
-                          text: pesan,
+                          text: response.data.message,
                         },
                       ])
                       .then(() => {
@@ -136,6 +133,10 @@ function initializeLiff(myLiffId) {
                 })
                 .catch((err2) => {
                   // alert(err2.response.data.message)
+                  let pesan = ''
+                    response.data.data.map((item,index)=>{
+                      return pesan += item.message + ', '
+                    })
                   liff
                     .sendMessages([
                       {
@@ -144,7 +145,7 @@ function initializeLiff(myLiffId) {
                       },
                       {
                         type: "text",
-                        text: err2.response.data.message,
+                        text: pesan,
                       },
                     ])
                     .then(() => {
