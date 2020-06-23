@@ -49,7 +49,7 @@ async function login(arrText, Context, userId) {
     Context.reply([
       {
         type: "text",
-        text: err.data.message
+        text: err.response.data.message
       }
     ])
   })

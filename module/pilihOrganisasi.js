@@ -47,7 +47,7 @@ function pilihOrganisasi(id_organisasi, userId, Context, status) {
         Context.reply([
           {
             type: "text",
-            text: err2.data.message
+            text: err2.response.data.message
           }
         ])
       })
@@ -71,7 +71,7 @@ function pilihOrganisasi(id_organisasi, userId, Context, status) {
     Context.reply([
       {
         type: "text",
-        text: err.data.message
+        text: err.response.data.message
       }
     ])
   })

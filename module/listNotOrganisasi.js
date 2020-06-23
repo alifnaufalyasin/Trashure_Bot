@@ -47,7 +47,7 @@ function listNotOrganisasi(Context, userId) {
         Context.reply([
           {
             type: "text",
-            text: err2.data.message
+            text: err2.response.data.message
           }
         ])
       })
@@ -66,7 +66,7 @@ function listNotOrganisasi(Context, userId) {
     Context.reply([
       {
         type: "text",
-        text: err.data.message
+        text: err.response.data.message
       }
     ])
   })

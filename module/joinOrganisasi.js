@@ -66,7 +66,7 @@ function joinOrganisasi(arrText, Context, userId) {
             Context.reply([
               {
                 type: "text",
-                text: err3.data.message
+                text: err3.response.data.message
               }
             ])
           })
@@ -84,7 +84,7 @@ function joinOrganisasi(arrText, Context, userId) {
         Context.reply([
           {
             type: "text",
-            text: err2.data.message
+            text: err2.response.data.message
           }
         ])
       })
@@ -102,7 +102,7 @@ function joinOrganisasi(arrText, Context, userId) {
     Context.reply([
       {
         type: "text",
-        text: err.data.message
+        text: err.response.data.message
       }
     ])
   })

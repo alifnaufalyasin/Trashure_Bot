@@ -32,7 +32,7 @@ axios({
   Context.reply([
     {
       type: "text",
-      text: err2.data.message
+      text: err2.response.data.message
     }
   ])
 })
