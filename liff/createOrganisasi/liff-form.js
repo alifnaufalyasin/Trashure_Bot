@@ -46,65 +46,31 @@ function initializeLiff(myLiffId) {
                 data: data,
               })
                 .then((response) => {
+                  console.log(response.data)
                   if (response.data.success) {
-                    liff
-                      .sendMessages([
-                        {
-                          type: "flex",
-                          altText: "List Barang",
-                          contents: {
-                            type: "bubble",
-                            direction: "ltr",
-                            body: {
-                              type: "box",
-                              layout: "vertical",
-                              spacing: "none",
-                              margin: "none",
-                              contents: [
-                                {
-                                  type: "text",
-                                  text: "Tambah Barang",
-                                  size: "xl",
-                                  align: "center",
-                                  weight: "bold",
-                                  color: "#DD9614",
-                                },
-                                {
-                                  type: "separator",
-                                  color: "#A7A7A7",
-                                },
-                                {
-                                  type: "text",
-                                  text: "Klik tombol dibawah ini untuk menambahkan barang",
-                                  margin: "md",
-                                  align: "center",
-                                  weight: "regular",
-                                  wrap: true,
-                                },
-                                {
-                                  type: "button",
-                                  action: {
-                                    type: "postback",
-                                    label: "Tambah",
-                                    data: "addbarang",
-                                  },
-                                  color: "#DD9614",
-                                  margin: "md",
-                                  style: "primary",
-                                },
-                              ],
-                            },
-                          },
-                        },
-                      ])
-                      .then(() => {
-                        console.log("message sent")
-                        liff.closeWindow()
-                      })
-                      .catch((err4) => {
-                        console.log(err4)
-                        alert(err4)
-                      })
+                    let token = {}
+                    token.userId = userId
+                    token.id_organisasi = id_organisasi
+                    axios({
+                      url: "https://rpl-inventory.herokuapp.com/api/lineBot/set",
+                      method: "POST",
+                      data: token,
+                    })
+                    // liff
+                    //   .sendMessages([
+                    //     {
+                    //       type: "text",
+                    //       text: "Lihat Barang"
+                    //     }
+                    //   ])
+                    //   .then(() => {
+                    //     console.log("message sent")
+                    //     liff.closeWindow()
+                    //   })
+                    //   .catch((err4) => {
+                    //     console.log(err4)
+                    //     alert(err4)
+                    //   })
                   } else {
                     liff
                       .sendMessages([
