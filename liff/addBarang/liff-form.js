@@ -26,7 +26,7 @@ function initializeLiff(myLiffId) {
           document
             .getElementById("btnSubmit")
             .addEventListener("click", (e) => {
-              e.preventDefault()
+              // e.preventDefault()
               let data = {}
               data.nama = document.getElementById("inputNama").value
               let produksi = document.getElementById("inputTglProduksi").value
