@@ -3,7 +3,8 @@ const createAkunFlex = require('../flex/createAkun')
 
 //module
 const loginHandle = require('../module/login')
-const joinHandle = require('../module/joinOrganisasi')
+const joinHandle = require('../module/joinOrganisasi');
+const listBarang = require('../module/listBarang');
 
 async function handleMessage(Context) {
   const message = Context.event.message;
@@ -39,6 +40,9 @@ async function handleMessage(Context) {
             text: `Sudah punya akun? ketik "login <email> (spasi) <password>"`
           }
         ]);
+        break;
+      case "lihat barang" :
+        await listBarang(userId, Context)
         break;
       default :
         if (message.text.toLowerCase().match(/login/g)){
