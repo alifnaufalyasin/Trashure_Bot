@@ -52,7 +52,7 @@ function initializeLiff(myLiffId) {
                   if (response.data.success) {
                     let token = {}
                     token.userId = userId
-                    token.id_organisasi = id_organisasi
+                    token.id_organisasi = response.data.data.id_organisasi
                     //set data line
                     axios({
                       url: "https://rpl-inventory.herokuapp.com/api/lineBot/set",
