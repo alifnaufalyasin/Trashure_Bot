@@ -56,7 +56,7 @@ function initializeLiff(myLiffId) {
     .init({
       liffId: myLiffId,
     })
-    .then(() => {
+    .then(async () => {
       await getProfile()
       const profile = liff.getContext()
       const userId = profile.userId
