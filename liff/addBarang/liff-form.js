@@ -14,11 +14,11 @@ function initializeLiff(myLiffId) {
     })
     .then(async () => {
       await getProfile()
+      const profile = liff.getContext()
+      const userId = profile.userId
+      let data = { userId: userId }
       document.getElementById("btnSubmit").addEventListener("click", (e) => {
         e.preventDefault()
-        const profile = liff.getContext()
-        const userId = profile.userId
-        let data = { userId: userId }
         axios({
           url: "https://rpl-inventory.herokuapp.com/api/lineBot?userId="+userId,
           method: "GET",
