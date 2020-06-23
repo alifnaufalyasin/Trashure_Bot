@@ -9,47 +9,50 @@ window.onload = function () {
  */
 function initializeLiff(myLiffId) {
   const flex = {
-    type: "bubble",
-    direction: "ltr",
-    body: {
-      type: "box",
-      layout: "vertical",
-      spacing: "none",
-      margin: "none",
-      contents: [
-        {
-          type: "text",
-          text: "Tambah Barang",
-          size: "xl",
-          align: "center",
-          weight: "bold",
-          color: "#DD9614",
-        },
-        {
-          type: "separator",
-          color: "#A7A7A7",
-        },
-        {
-          type: "text",
-          text: "Klik tombol dibawah ini untuk menambahkan barang",
-          margin: "md",
-          align: "center",
-          weight: "regular",
-          wrap: true,
-        },
-        {
-          type: "button",
-          action: {
-            type: "postback",
-            label: "Tambah",
-            data: "addbarang",
+    type: "carousel",
+    contents: [{
+      type: "bubble",
+      direction: "ltr",
+      body: {
+        type: "box",
+        layout: "vertical",
+        spacing: "none",
+        margin: "none",
+        contents: [
+          {
+            type: "text",
+            text: "Tambah Barang",
+            size: "xl",
+            align: "center",
+            weight: "bold",
+            color: "#DD9614",
           },
-          color: "#DD9614",
-          margin: "md",
-          style: "primary",
-        },
-      ],
-    },
+          {
+            type: "separator",
+            color: "#A7A7A7",
+          },
+          {
+            type: "text",
+            text: "Klik tombol dibawah ini untuk menambahkan barang",
+            margin: "md",
+            align: "center",
+            weight: "regular",
+            wrap: true,
+          },
+          {
+            type: "button",
+            action: {
+              type: "postback",
+              label: "Tambah",
+              data: "addbarang",
+            },
+            color: "#DD9614",
+            margin: "md",
+            style: "primary",
+          },
+        ],
+      },
+    }]
   }
 
   liff
