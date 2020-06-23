@@ -218,9 +218,9 @@ function flexUtama(barang) {
         {
           "type": "button",
           "action": {
-            "type": "postback",
+            "type": "uri",
             "label": "Tambah",
-            "data": "addbarang"
+            "uri": "https://liff.line.me/1654371439-eAkgWOEp"
           },
           "color": "#DD9614",
           "margin": "md",
