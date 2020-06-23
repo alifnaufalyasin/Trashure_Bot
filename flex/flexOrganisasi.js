@@ -89,7 +89,7 @@ function flexUtama(organisasi) {
           "action": {
             "type": "uri",
             "label": "Daftar Organisasi",
-            "uri": "https://linecorp.com"
+            "uri": "https://liff.line.me/1654371439-KGlkPNDy"
           },
           "color": "#DD9614",
           "style": "primary"

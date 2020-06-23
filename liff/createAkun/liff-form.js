@@ -27,22 +27,43 @@ function initializeLiff(myLiffId) {
           data: data,
         })
         .then(async (response) => {
-          alert('proses')
-          console.log(response.data)
-          liff
-            .sendMessages([
-              {
-                type: "text",
-                text: "Akun berhasil dibuat",
-              },
-            ])
-            .then(() => {
-              console.log("message sent")
-              liff.closeWindow()
-            })
-            .catch((err) => {
-              alert(err)
-            })
+          if (response.data.success){
+            // alert('proses')
+            // console.log(response.data)
+            liff
+              .sendMessages([
+                {
+                  type: "text",
+                  text: "Akun berhasil dibuat",
+                },
+              ])
+              .then(() => {
+                console.log("message sent")
+                liff.closeWindow()
+              })
+              .catch((err) => {
+                alert(err)
+              })
+          }else{
+            liff
+              .sendMessages([
+                {
+                  type: "text",
+                  text: "Error...",
+                },
+                {
+                  type: "text",
+                  text: response.data.message,
+                },
+              ])
+              .then(() => {
+                console.log("message sent")
+                liff.closeWindow()
+              })
+              .catch((err4) => {
+                alert(err4)
+              })
+          }
         })
         .catch((err) => {
           liff
