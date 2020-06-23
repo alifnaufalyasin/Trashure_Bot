@@ -43,7 +43,7 @@ function pilihOrganisasi(id_organisasi, userId, Context, status) {
         }
       })
       .catch((err2) => {
-        console.log(err2.data);
+        console.log(err2);
         Context.reply([
           {
             type: "text",
