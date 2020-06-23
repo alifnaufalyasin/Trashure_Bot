@@ -17,6 +17,7 @@ function initializeLiff(myLiffId) {
       await getProfile()
       const profile = liff.getContext()
       const userId = profile.userId
+      //get token
       axios({
         url: "https://rpl-inventory.herokuapp.com/api/lineBot?userId=" + userId,
         method: "GET",
@@ -36,6 +37,7 @@ function initializeLiff(myLiffId) {
               data.append("alamat", alamat)
               data.append("password", password)
               data.append("logo", logo)
+              //registrasi organisasi
               axios({
                 url:
                   "https://rpl-inventory.herokuapp.com/api/organisasi/registrasi",
@@ -51,6 +53,7 @@ function initializeLiff(myLiffId) {
                     let token = {}
                     token.userId = userId
                     token.id_organisasi = id_organisasi
+                    //set data line
                     axios({
                       url: "https://rpl-inventory.herokuapp.com/api/lineBot/set",
                       method: "POST",
@@ -73,6 +76,7 @@ function initializeLiff(myLiffId) {
                           alert(err8)
                         })
                       })
+                      //catch set data line
                       .catch((err6) => {
                         // alert(err6.response.data.message)
                         liff
@@ -115,12 +119,9 @@ function initializeLiff(myLiffId) {
                       })
                   }
                 })
+                //catch registrasi organisasi
                 .catch((err2) => {
                   // alert(err2.response.data.message)
-                  let pesan = ""
-                  response.data.data.map((item, index) => {
-                    return (pesan += item.message + ", ")
-                  })
                   liff
                     .sendMessages([
                       {
@@ -129,7 +130,7 @@ function initializeLiff(myLiffId) {
                       },
                       {
                         type: "text",
-                        text: pesan,
+                        text: err2.response.data.message,
                       },
                     ])
                     .then(() => {
@@ -142,6 +143,7 @@ function initializeLiff(myLiffId) {
                 })
             })
         })
+        //catch get token
         .catch((err0) => {
           // alert(err0.response.data.message)
           liff
