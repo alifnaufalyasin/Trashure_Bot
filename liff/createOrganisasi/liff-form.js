@@ -9,50 +9,47 @@ window.onload = function () {
  */
 function initializeLiff(myLiffId) {
   const flex = {
-    type: "carousel",
-    contents: [{
-      type: "bubble",
-      direction: "ltr",
-      body: {
-        type: "box",
-        layout: "vertical",
-        spacing: "none",
-        margin: "none",
-        contents: [
-          {
-            type: "text",
-            text: "Tambah Barang",
-            size: "xl",
-            align: "center",
-            weight: "bold",
-            color: "#DD9614",
+    type: "bubble",
+    direction: "ltr",
+    body: {
+      type: "box",
+      layout: "vertical",
+      spacing: "none",
+      margin: "none",
+      contents: [
+        {
+          type: "text",
+          text: "Tambah Barang",
+          size: "xl",
+          align: "center",
+          weight: "bold",
+          color: "#DD9614",
+        },
+        {
+          type: "separator",
+          color: "#A7A7A7",
+        },
+        {
+          type: "text",
+          text: "Klik tombol dibawah ini untuk menambahkan barang",
+          margin: "md",
+          align: "center",
+          weight: "regular",
+          wrap: true,
+        },
+        {
+          type: "button",
+          action: {
+            type: "postback",
+            label: "Tambah",
+            data: "addbarang",
           },
-          {
-            type: "separator",
-            color: "#A7A7A7",
-          },
-          {
-            type: "text",
-            text: "Klik tombol dibawah ini untuk menambahkan barang",
-            margin: "md",
-            align: "center",
-            weight: "regular",
-            wrap: true,
-          },
-          {
-            type: "button",
-            action: {
-              type: "postback",
-              label: "Tambah",
-              data: "addbarang",
-            },
-            color: "#DD9614",
-            margin: "md",
-            style: "primary",
-          },
-        ],
-      },
-    }]
+          color: "#DD9614",
+          margin: "md",
+          style: "primary",
+        },
+      ],
+    },
   }
 
   liff
@@ -113,6 +110,10 @@ function initializeLiff(myLiffId) {
                         alert(err4)
                       })
                   } else {
+                    let pesan = ''
+                    response.data.data.map((item,index)=>{
+                      return pesan += item.message + ', '
+                    })
                     liff
                       .sendMessages([
                         {
@@ -121,7 +122,7 @@ function initializeLiff(myLiffId) {
                         },
                         {
                           type: "text",
-                          text: response.data.message,
+                          text: pesan,
                         },
                       ])
                       .then(() => {

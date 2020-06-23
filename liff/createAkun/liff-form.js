@@ -45,6 +45,10 @@ function initializeLiff(myLiffId) {
                 alert(err)
               })
           }else{
+            let pesan = ''
+            response.data.data.map((item,index)=>{
+              return pesan += item.message + ', '
+            })
             liff
               .sendMessages([
                 {
@@ -53,7 +57,7 @@ function initializeLiff(myLiffId) {
                 },
                 {
                   type: "text",
-                  text: response.data.message,
+                  text: pesan,
                 },
               ])
               .then(() => {
