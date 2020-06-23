@@ -56,21 +56,21 @@ function initializeLiff(myLiffId) {
                       method: "POST",
                       data: token,
                     })
-                    // liff
-                    //   .sendMessages([
-                    //     {
-                    //       type: "text",
-                    //       text: "Lihat Barang"
-                    //     }
-                    //   ])
-                    //   .then(() => {
-                    //     console.log("message sent")
-                    //     liff.closeWindow()
-                    //   })
-                    //   .catch((err4) => {
-                    //     console.log(err4)
-                    //     alert(err4)
-                    //   })
+                    liff
+                      .sendMessages([
+                        {
+                          type: "text",
+                          text: "Lihat Barang"
+                        }
+                      ])
+                      .then(() => {
+                        console.log("message sent")
+                        liff.closeWindow()
+                      })
+                      .catch((err4) => {
+                        console.log(err4)
+                        alert(err4)
+                      })
                   } else {
                     liff
                       .sendMessages([
