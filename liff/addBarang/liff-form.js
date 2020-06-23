@@ -14,17 +14,18 @@ function initializeLiff(myLiffId) {
     })
     .then(async () => {
       await getProfile()
-      const profile = liff.getContext()
-      const userId = profile.userId
-      let data = { userId: userId }
-      axios({
-        url: "https://rpl-inventory.herokuapp.com/api/lineBot?userId="+userId,
-        method: "GET",
-        // data: data,
-      })
-      .then((dataToken) => {
-        document.getElementById("btnSubmit").addEventListener("click", (e) => {
-          e.preventDefault()
+      document.getElementById("btnSubmit").addEventListener("click", (e) => {
+        e.preventDefault()
+        const profile = liff.getContext()
+        const userId = profile.userId
+        let data = { userId: userId }
+        axios({
+          url: "https://rpl-inventory.herokuapp.com/api/lineBot?userId="+userId,
+          method: "GET",
+          // data: data,
+        })
+        .then((dataToken) => {
+        
           let data = {}
           data.nama = document.getElementById("inputNama").value
           let produksi = document.getElementById("inputTglProduksi").value
