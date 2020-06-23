@@ -56,20 +56,43 @@ function initializeLiff(myLiffId) {
                       method: "POST",
                       data: token,
                     })
-                    liff
-                      .sendMessages([
-                        {
-                          type: "text",
-                          text: "Lihat Barang"
-                        }
-                      ])
-                      .then(() => {
-                        console.log("message sent")
-                        liff.closeWindow()
+                    .then((res) => {
+                      liff
+                        .sendMessages([
+                          {
+                            type: "text",
+                            text: "Lihat Barang"
+                          }
+                        ])
+                        .then(() => {
+                          console.log("message sent")
+                          liff.closeWindow()
+                        })
+                        .catch((err8) => {
+                          console.log(err8)
+                          alert(err8)
+                        })
                       })
-                      .catch((err4) => {
-                        console.log(err4)
-                        alert(err4)
+                      .catch((err6) => {
+                        // alert(err6.response.data.message)
+                        liff
+                          .sendMessages([
+                            {
+                              type: "text",
+                              text: "Error...",
+                            },
+                            {
+                              type: "text",
+                              text: err6.response.data.message,
+                            },
+                          ])
+                          .then(() => {
+                            console.log("message sent")
+                            liff.closeWindow()
+                          })
+                          .catch((err7) => {
+                            alert(err7)
+                          })
                       })
                   } else {
                     liff
