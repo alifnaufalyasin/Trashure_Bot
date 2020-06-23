@@ -17,8 +17,8 @@ function initializeLiff(myLiffId) {
       const profile = liff.getContext()
       const userId = profile.userId
       let data = { userId: userId }
-      document.getElementById("btnSubmit").addEventListener("click", (e) => {
-        e.preventDefault()
+      // document.getElementById("btnSubmit").addEventListener("click", (e) => {
+      //   e.preventDefault()
         axios({
           url: "https://rpl-inventory.herokuapp.com/api/lineBot?userId="+userId,
           method: "GET",
@@ -122,7 +122,7 @@ function initializeLiff(myLiffId) {
           .catch((err) => {
             alert(err)
           })
-      })
+      // })
     })
     .catch((err) => {
       window.location = "./form.html"
