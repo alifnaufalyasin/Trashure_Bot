@@ -34,7 +34,7 @@ function initializeLiff(myLiffId) {
               data.id_kategori = Number(1)
               alert(data.id_kategori)
               axios({
-                url: "https://5ab20e50db87.ngrok.io/api/barang/add",
+                url: "https://rpl-inventory.herokuapp.com/api/barang/add",
                 method: "POST",
                 headers: {
                   Authorization: `Bearer ${dataToken.data.data.token}`,
