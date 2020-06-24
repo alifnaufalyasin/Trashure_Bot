@@ -30,7 +30,7 @@ function initializeLiff(myLiffId) {
               e.preventDefault()
               const nama = document.getElementById("inputNama").value
               const alamat = document.getElementById("inputAlamat").value
-              const password = document.getElementById("inputNama").value
+              const password = document.getElementById("inputPassword").value
               const logo = $("#inputLogo")[0].files[0]
               let data = new FormData()
               data.append("nama", nama)
