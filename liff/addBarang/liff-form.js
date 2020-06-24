@@ -104,7 +104,7 @@ function initializeLiff(myLiffId) {
             })
         })
         .catch((err0) => {
-          // alert(err0.response.data.message)
+          alert(err0.response.data.message)
           liff
             .sendMessages([
               {
