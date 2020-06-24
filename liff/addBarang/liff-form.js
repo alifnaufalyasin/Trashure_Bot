@@ -20,7 +20,6 @@ function initializeLiff(myLiffId) {
       axios({
         url: "https://rpl-inventory.herokuapp.com/api/lineBot?userId=" + userId,
         method: "GET",
-        // data: data,
       })
         .then((dataToken) => {
           alert(dataToken.data.data.token)
@@ -30,6 +29,7 @@ function initializeLiff(myLiffId) {
               data.nama = document.getElementById("inputNama").value
               let produksi = document.getElementById("inputTglProduksi").value
               // let post_produksi = produksi.slice("-")
+              alert(produksi)
               data.tgl_produksi = produksi
               data.deskripsi = document.getElementById("inputDeskripsi").value
               data.value = document.getElementById("inputValue").value
