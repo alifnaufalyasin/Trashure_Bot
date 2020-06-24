@@ -7,7 +7,7 @@ async function hapusBarang(id_barang, userId, Context) {
   })
   .then(async (response) => {
     axios({
-      url: "https://rpl-inventory.herokuapp.com/api/deleteBarang/"+id_barang,
+      url: "https://rpl-inventory.herokuapp.com/api/barang/"+id_barang,
       method: "DELETE",
       headers: {
         'Authorization': `Bearer ${response.data.data.token}`
