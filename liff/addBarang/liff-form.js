@@ -28,11 +28,11 @@ function initializeLiff(myLiffId) {
               let data = {}
               data.nama = document.getElementById("inputNama").value
               data.tgl_produksi = document.getElementById("inputTglProduksi").value
-              alert(data.tgl_produksi)
               data.deskripsi = document.getElementById("inputDeskripsi").value
               data.value = document.getElementById("inputValue").value
               data.id_organisasi = dataToken.data.data.id_organisasi
               data.id_kategori = 1
+              alert(data.id_organisasi)
               axios({
                 url: "https://5ab20e50db87.ngrok.io/api/barang/add",
                 method: "POST",
