@@ -23,6 +23,7 @@ function initializeLiff(myLiffId) {
         // data: data,
       })
         .then((dataToken) => {
+          alert(dataToken.data.data.token)
           document
             .getElementById("btnSubmit")
             .addEventListener("click", (e) => {
