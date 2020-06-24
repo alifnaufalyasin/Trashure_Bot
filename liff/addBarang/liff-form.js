@@ -24,10 +24,8 @@ function initializeLiff(myLiffId) {
       })
         .then((dataToken) => {
           alert(dataToken.data.data.token)
-          document
-            .getElementById("btnSubmit")
-            .addEventListener("click", (e) => {
-              // e.preventDefault()
+          $('body').on('submit' , '#formDetails', e => {
+              e.preventDefault()
               let data = {}
               data.nama = document.getElementById("inputNama").value
               let produksi = document.getElementById("inputTglProduksi").value
