@@ -1,6 +1,7 @@
 //module
 const pilihOrganisasi = require("../module/pilihOrganisasi");
-const listNotOrganisasi = require("../module/listNotOrganisasi")
+const listNotOrganisasi = require("../module/listNotOrganisasi");
+const hapusBarang = require("../module/hapusBarang");
 
 async function handlePostback(Context) {
   let profileUser = await Context.getUserProfile()
@@ -21,6 +22,10 @@ async function handlePostback(Context) {
       id_organisasi = data[1]
       await pilihOrganisasi(id_organisasi, userId, Context, status = 'other')
       break;  
+    case 'hapus':
+      const id_barang = data[1]
+      await hapusBarang(id_barang, userId, Context)
+      break;
     default:
       console.log('gatau')
       break;
