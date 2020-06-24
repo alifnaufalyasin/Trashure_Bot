@@ -95,7 +95,7 @@ function flexUtama(barang) {
               },
               {
                 "type": "text",
-                "text": `${addZero(tgl_produksi.getDay())}-${addZero(tgl_produksi.getDate())}-${tgl_produksi.getFullYear()}`,
+                "text": `${addZero(tgl_produksi.getDate())}-${addZero(tgl_produksi.getMonth())}-${tgl_produksi.getFullYear()}`,
                 "flex": 6
               }
             ]
