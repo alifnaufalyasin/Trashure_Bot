@@ -30,8 +30,8 @@ function initializeLiff(myLiffId) {
               let data = {}
               data.nama = document.getElementById("inputNama").value
               let produksi = document.getElementById("inputTglProduksi").value
-              let post_produksi = produksi.slice("-")
-              data.tgl_produksi = `${post_produksi[2]}-${post_produksi[1]}-${post_produksi[0]}`
+              // let post_produksi = produksi.slice("-")
+              data.tgl_produksi = produksi
               data.deskripsi = document.getElementById("inputDeskripsi").value
               data.value = document.getElementById("inputValue").value
               data.id_organisasi = dataToken.data.data.id_organisasi
