@@ -22,7 +22,7 @@ function initializeLiff(myLiffId) {
         data.nama = document.getElementById("inputNama").value
         data.no_telp = document.getElementById("inputNomor").value
         axios({
-          url: "https://5ab20e50db87.ngrok.io/api/admin/registrasi",
+          url: "https://rpl-inventory.herokuapp.com/api/admin/registrasi",
           method: "POST",
           data: data,
         })
