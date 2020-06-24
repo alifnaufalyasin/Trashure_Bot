@@ -28,8 +28,6 @@ function initializeLiff(myLiffId) {
         })
         .then(async (response) => {
           if (response.data.success){
-            // alert('proses')
-            // console.log(response.data)
             liff
               .sendMessages([
                 {

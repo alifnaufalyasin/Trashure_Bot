@@ -22,7 +22,6 @@ function initializeLiff(myLiffId) {
         method: "GET",
       })
         .then((dataToken) => {
-          alert(dataToken.data.data.token)
           $('body').on('submit' , '#formDetails', e => {
               e.preventDefault()
               let data = {}
@@ -32,7 +31,6 @@ function initializeLiff(myLiffId) {
               data.value = document.getElementById("inputValue").value
               data.id_organisasi = dataToken.data.data.id_organisasi
               data.id_kategori = Number(1)
-              alert(data.id_kategori)
               axios({
                 url: "https://rpl-inventory.herokuapp.com/api/barang/add",
                 method: "POST",
@@ -101,7 +99,6 @@ function initializeLiff(myLiffId) {
             })
         })
         .catch((err0) => {
-          alert(err0.response.data.message)
           liff
             .sendMessages([
               {
