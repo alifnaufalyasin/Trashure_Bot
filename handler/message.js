@@ -42,7 +42,7 @@ async function handleMessage(Context) {
       Context.reply([
         {
           type: "text",
-          text: `Haiiii`,
+          text: `Haiiiii`,
         },
       ])
         break
