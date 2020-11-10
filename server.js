@@ -31,19 +31,19 @@ app.prepare().then(() => {
     res.send("ngapain kesini hayooo")
   })
 
-  const flamelinkApp = require('./config/flamelink')
-  server.get("/tambah", async (req,res,next) => {
-    const hasil = await flamelinkApp.content.add({
-      schemaKey: 'scanSampah',
-      data: {
-        userId: "Ua2faf57f45fddebd81410b69c29f342c",
-        trashbagId: "2654B398NO",
-        tanggal: Date.now(),
-        status: "Proses"
-      }
-    })
-    res.send(hasil)
-  })
+  // const flamelinkApp = require('./config/flamelink')
+  // server.get("/tambah", async (req,res,next) => {
+  //   const hasil = await flamelinkApp.content.add({
+  //     schemaKey: 'scanSampah',
+  //     data: {
+  //       userId: "Ua2faf57f45fddebd81410b69c29f342c",
+  //       trashbagId: "2654B398NO",
+  //       tanggal: Date.now(),
+  //       status: "Proses"
+  //     }
+  //   })
+  //   res.send(hasil)
+  // })
 
   // route for webhook request
   server.all("*", (req, res) => {
