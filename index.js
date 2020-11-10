@@ -2,6 +2,7 @@ const { handlePostback } = require("./handler/postback")
 const { handleMessage } = require("./handler/message")
 
 module.exports = async function App(context) {
+
     if (context.event.isPostback){
       console.log('postback')
       return handlePostback(context);
@@ -9,4 +10,5 @@ module.exports = async function App(context) {
       console.log('message')
       return handleMessage(context);
     }
+    
 };
