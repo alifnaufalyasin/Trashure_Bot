@@ -23,8 +23,8 @@ app.prepare().then(() => {
   )
 
   // your custom route
-  // server.use(bodyParser.urlencoded({extended:true}))
-  // server.use(bodyParser.json())
+  server.use(bodyParser.urlencoded({extended:true}))
+  server.use(bodyParser.json())
   server.use("/liff", express.static("liff"))
 
   server.get("/", (req, res) => {
