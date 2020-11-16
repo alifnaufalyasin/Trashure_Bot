@@ -33,7 +33,7 @@ app.prepare().then(() => {
   })
   server.get("/getImage",(req,res) => {
     const link = req.query.link
-    // console.log(link);
+    console.log(link);
     // res.status(200).send(link)
     getInstagramPhoto(link)
     .then(image => {
