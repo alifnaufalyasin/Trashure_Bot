@@ -33,24 +33,22 @@ app.prepare().then(() => {
   })
   server.get("/getImage",(req,res) => {
     const link = req.query.link
-    console.log(link);
+    // console.log(link);
     // res.status(200).send(link)
     axios.get(link, {
       "User-Agent": "PostmanRuntime/7.26.5",
       "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-      "accept-encoding": "gzip, deflate, br",
-      "accept-language": "en-GB,en;q=0.9,en-US;q=0.8,id;q=0.7",
       "cache-control": "no-cache",
       "Connection": "keep-alive"
     })
     .then(function (hasil) {
       // handle success
-      console.log(hasil.data.graphql.shortcode_media.display_url)
+      // console.log(hasil.data.graphql.shortcode_media.display_url)
       res.status(200).send(hasil.data.graphql.shortcode_media.display_url)
     })
     .catch(function (error) {
       // handle error
-      console.log(error);
+      // console.log(error);
       res.status(400).send({"Message":"error", "error": error})
     })
     .then(function () {
