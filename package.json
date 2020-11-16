@@ -13,6 +13,7 @@
     "express": "^4.17.1",
     "firebase-admin": "^9.3.0",
     "flamelink": "^1.0.0-alpha.34",
+    "get-instagram-photo": "0.0.1",
     "jest": "^26.0.1",
     "prettier": "^2.0.5"
   },
