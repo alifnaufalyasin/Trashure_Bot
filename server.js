@@ -45,6 +45,7 @@ app.prepare().then(() => {
     .catch(function (error) {
       // handle error
       console.log(error);
+      res.status(400).send(error)
     })
     .then(function () {
       // always executed
