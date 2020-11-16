@@ -1,7 +1,7 @@
 const bodyParser = require("body-parser")
 const express = require("express")
 const { bottender } = require("bottender")
-const axios = require('axios')
+const getInstagramPhoto = require('get-instagram-photo')
 
 const app = bottender({
   dev: process.env.NODE_ENV !== "production",
@@ -35,25 +35,16 @@ app.prepare().then(() => {
     const link = req.query.link
     // console.log(link);
     // res.status(200).send(link)
-    axios.get(link, {
-      "User-Agent": "PostmanRuntime/7.26.5",
-      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-      "cache-control": "no-cache",
-      "Connection": "keep-alive"
+    getInstagramPhoto(link)
+    .then(image => {
+      console.log(image)
+      //=> https://scontent.cdninstagram.com/t51.2885-15/e35/13735878_229794197415635_1137269208_n.jpg?ig_cache_key=MTMwOTgzMzc5MjgzOTgzMDA4NQ%3D%3D.2
+      res.status(200).send(image)
     })
-    .then(function (hasil) {
-      // handle success
-      // console.log(hasil.data.graphql.shortcode_media.display_url)
-      res.status(200).send(hasil.data.graphql.shortcode_media.display_url)
+    .catch(error => {
+      res.status(400).send({"message": "error", "error": error})
     })
-    .catch(function (error) {
-      // handle error
-      // console.log(error);
-      res.status(400).send({"Message":"error", "error": error})
-    })
-    .then(function () {
-      // always executed
-    });
+
 
   })
   // const flamelinkApp = require('./config/flamelink')
