@@ -1,6 +1,7 @@
 const bodyParser = require("body-parser")
 const express = require("express")
 const { bottender } = require("bottender")
+const axios = require('axios')
 
 const app = bottender({
   dev: process.env.NODE_ENV !== "production",
@@ -30,7 +31,24 @@ app.prepare().then(() => {
   server.get("/", (req, res) => {
     res.send("ngapain kesini hayooo")
   })
+  server.get("/getImage",(req,res) => {
+    const link = req.query.link
+    console.log(link);
+    axios.get(link)
+    .then(function (hasil) {
+      // handle success
+      console.log(hasil.data.graphql.shortcode_media.display_url)
+      res.status(200).send(hasil.data.graphql.shortcode_media.display_url)
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
 
+  })
   // const flamelinkApp = require('./config/flamelink')
   // server.get("/tambah", async (req,res,next) => {
   //   const hasil = await flamelinkApp.content.add({
