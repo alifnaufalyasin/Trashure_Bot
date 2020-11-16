@@ -36,7 +36,11 @@ app.prepare().then(() => {
     console.log(link);
     // res.status(200).send(link)
     axios.get(link, {
-      "User-Agent": "Mozilla/5.0 (Linux; Android 7.1.1; SM-T555 Build/NMF26X; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.96 Safari/537.36"
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 Edg/86.0.622.69",
+      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+      "accept-encoding": "gzip, deflate, br",
+      "accept-language": "en-GB,en;q=0.9,en-US;q=0.8,id;q=0.7",
+      "cache-control": "no-cache"
     })
     .then(function (hasil) {
       // handle success
