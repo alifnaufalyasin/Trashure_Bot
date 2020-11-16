@@ -36,12 +36,12 @@ app.prepare().then(() => {
     console.log(link);
     // res.status(200).send(link)
     axios.get(link, {
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 Edg/86.0.622.69",
+      "User-Agent": "PostmanRuntime/7.26.5",
       "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
       "accept-encoding": "gzip, deflate, br",
       "accept-language": "en-GB,en;q=0.9,en-US;q=0.8,id;q=0.7",
       "cache-control": "no-cache",
-      "cookie": `ig_did=68385D7D-F213-4858-AE87-CD183D0233C8; mid=XhwrBQALAAHwJg90g7qGSCedNnoU; fbm_124024574287414=base_domain=.instagram.com; ig_nrcb=1; csrftoken=nJdqOFASLjRyViF3kytcRVvkcWCBVAQw; ds_user_id=712759089; sessionid=712759089%3AcG920xIkPUcEGE%3A19; shbid=5013; rur=FRC; fbsr_124024574287414=NuLM_sXHlQvpzY5ABCnn2cvpANO7eT0udQln96ZwE7A.eyJ1c2VyX2lkIjoiMTAwMDAzMzE4MTg1NzMxIiwiY29kZSI6IkFRQTRscHNqOHVTQ1BrVnFMN2hZWHdydVI0Y1RENkNhdEFHNzkwQnYycHNDZUpIMjNhZ2FSeElJeE1FODVlSlNiSnI4T1ZtTGRHUGFNY0M1Y09xYjVCSDBMcE5heHJjZHh2c1pra01QTWFESGxLNjJVdktUWU1RUDVfQVpkWmJmanRqVlBEalhyZHpPbkZzU3ljcFdMNkN5VnhXYWJfbHc1YWx6d0R6Zl83MmpNaFA1QWM0NW5ja2NZRDlrRS1JcjVSb3FQNV9xakRpWWRtTXBNLTY5WUtFUmVablFWcFM3THI5Rm9KTC1zM2NwSG9VYThFZDFSWllLZFZTTk9TeWtuMVlsNHEyODdBRXdvOGQxNVBsN293X1JMLWNCREZVOWJubFhKanNGcFZObEx3ZUhOQTc1U2FtWVhLcVAzSnRiU1RLRVVmZGhxdU1hX0phOG9xS2tEWFNQIiwib2F1dGhfdG9rZW4iOiJFQUFCd3pMaXhuallCQUxiaDd0V3d1TDZrNkNCZjE0eks4VFZPRUQ3NVpDbFI1M2g5V1ZMbVhEaVFQem8wVXplVDBrSHYzMVhnR2JuNVZjWWptR0tXa0pxWkJaQmNwZ1IwUWJRdzIzVk51RFF3ZWJncVZueXNhblNaQ2l5dlV6SlNmRnpNVnhXM2g0N3V4UW55QXd2aHRwRFZrTEQ4d00ybDRJb3FYV01jRVhnWkFzUFVldGRmM3QwOEhBbVpBdzNuc1pEIiwiYWxnb3JpdGhtIjoiSE1BQy1TSEEyNTYiLCJpc3N1ZWRfYXQiOjE2MDUyNjY2NzR9; shbts=1605539040.889833; urlgen="{\"118.99.109.29\": 17451\054 \"118.99.109.6\": 17451\054 \"118.99.109.89\": 17451\054 \"118.99.109.106\": 17451}:1keghl:HaD3Kg_mYSQfKptY-Fk-kQP_T8k"`
+      "Connection": "keep-alive"
     })
     .then(function (hasil) {
       // handle success
