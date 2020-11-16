@@ -34,7 +34,7 @@ app.prepare().then(() => {
   server.get("/getImage",(req,res) => {
     const link = req.query.link
     console.log(link);
-    res.status(200).send(link)
+    // res.status(200).send(link)
     axios.get(link, {
       "User-Agent": "Mozilla/5.0 (Linux; Android 7.1.1; SM-T555 Build/NMF26X; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.96 Safari/537.36"
     })
