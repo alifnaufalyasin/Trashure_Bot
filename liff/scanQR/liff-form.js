@@ -1,3 +1,24 @@
+var firebaseConfig = {
+  apiKey: "AIzaSyAL7HKd7ssdzMfoYp2o1ZpZQ1bzYNwPRJY",
+  authDomain: "trahsure-aliven.firebaseapp.com",
+  databaseURL: "https://trahsure-aliven.firebaseio.com",
+  projectId: "trahsure-aliven",
+  storageBucket: "trahsure-aliven.appspot.com",
+  messagingSenderId: "245501926255",
+  appId: "1:245501926255:web:ee866d282beb71f1e9a69a",
+  measurementId: "G-X7X23HQ47L"
+};
+// Initialize Firebase
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+const app = flamelink({
+	firebaseApp,
+	env: 'production', // optional, defaults to `production`
+	locale: 'en-US', // optional, defaults to `en-US`
+	dbType: 'rtdb', // optional, defaults to `rtdb` - can be 'rtdb' or 'cf' (Realtime DB vs Cloud Firestore)
+});
+
 window.onload = function () {
   let myLiffId = "1654371439-ONAX01kB"
   initializeLiff(myLiffId)
@@ -15,106 +36,25 @@ function initializeLiff(myLiffId) {
     .then(async () => {
       const profile = liff.getContext()
       const userId = profile.userId
-      let data = { userId: userId }
-      axios({
-        url: "https://rpl-inventory.herokuapp.com/api/lineBot?userId="+userId,
-        method: "GET",
-        // data: data,
-      })
-      .then((dataToken) => {
-        liff.scanCode()
+      liff.scanCode()
         .then((result) => {
           const kode = result.value
-          const data2 = { kode }
-          axios({
-            url: "https://rpl-inventory.herokuapp.com/api/scanQR",
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${dataToken.data.data.token}`,
-            },
-            data: data2,
-          })
-            .then((response) => {
-              if(response.data.success){
-                liff
-                  .sendMessages([
-                    {
-                      type: "text",
-                      text: "Berhasil scan barang " + response.data.data.nama,
-                    },
-                  ])
-                  .then(() => {
-                    console.log("message sent")
-                    liff.closeWindow()
-                  })
-                  .catch((err4) => {
-                    alert(err4)
-                  })
-              }else{
-                liff
-                .sendMessages([
-                  {
-                    type: "text",
-                    text: "Error...",
-                  },
-                  {
-                    type: "text",
-                    text: response.data.message,
-                  },
-                ])
-                .then(() => {
-                  console.log("message sent")
-                  liff.closeWindow()
-                })
-                .catch((err4) => {
-                  alert(err4)
-                })
-              }
+          liff
+            .sendMessages([
+              {
+                type: "text",
+                text: kode,
+              },
+            ])
+            .then(() => {
+              console.log("message sent")
+              liff.closeWindow()
             })
-            .catch((err2) => {
-              // alert(err2.response.data.message)
-              liff
-                .sendMessages([
-                  {
-                    type: "text",
-                    text: "Error...",
-                  },
-                  {
-                    type: "text",
-                    text: err2.response.data.message,
-                  },
-                ])
-                .then(() => {
-                  console.log("message sent")
-                  liff.closeWindow()
-                })
-                .catch((err3) => {
-                  alert(err3)
-                })
+            .catch((err) => {
+              alert(err)
             })
         })
-      })
-      .catch((err0) => {
-        // alert(err0.response.data.message)
-        liff
-          .sendMessages([
-            {
-              type: "text",
-              text: "Error...",
-            },
-            {
-              type: "text",
-              text: err0.response.data.message,
-            },
-          ])
-          .then(() => {
-            console.log("message sent")
-            liff.closeWindow()
-          })
-          .catch((err) => {
-            alert(err)
-          })
-      })
+      let data = { userId: userId }
     })
     .catch((err) => {
       window.location = "./form.html"
