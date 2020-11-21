@@ -6,7 +6,7 @@ async function ScanQR(Context, userId) {
   const dataRiwayat = await flamelinkApp.content.getByField({
     schemaKey: 'scanSampah',
     field: 'userId',
-    value: userId,
+    value: userId+'s',
     limitToLast: 1
   })
   const key = Object.keys(dataRiwayat)
