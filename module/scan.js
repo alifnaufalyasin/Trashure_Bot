@@ -1,6 +1,6 @@
 const scanKosong = require('../flex/scanKosong')
 
-function ScanQR(Context, userId) {
+async function ScanQR(Context, userId) {
   await Context.reply([
     {
       type: "flex",
