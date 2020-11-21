@@ -31,6 +31,7 @@ window.onload = function () {
  * @param {string} myLiffId The LIFF ID of the selected element
  */
 function initializeLiff(myLiffId) {
+  document.getElementById("Header").value = "Init"
   liff
     .init({
       liffId: myLiffId,
