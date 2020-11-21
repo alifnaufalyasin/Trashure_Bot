@@ -1,5 +1,3 @@
-const { json } = require("body-parser");
-
 var firebaseConfig = {
   apiKey: "AIzaSyAL7HKd7ssdzMfoYp2o1ZpZQ1bzYNwPRJY",
   authDomain: "trahsure-aliven.firebaseapp.com",
