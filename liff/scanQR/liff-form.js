@@ -39,7 +39,9 @@ function initializeLiff(myLiffId) {
       liff.scanCode()
         .then((result) => {
           const kode = result.value
-          if (result != "null"){
+          if (result == null){
+            liff.closeWindow()
+          } else{
             liff
               .sendMessages([
                 {
@@ -54,8 +56,6 @@ function initializeLiff(myLiffId) {
               .catch((err) => {
                 alert(err)
               })
-          }else{
-            liff.closeWindow()
           }
         })
       let data = { userId: userId }
