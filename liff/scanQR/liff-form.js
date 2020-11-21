@@ -31,7 +31,7 @@ window.onload = function () {
  * @param {string} myLiffId The LIFF ID of the selected element
  */
 function initializeLiff(myLiffId) {
-  document.getElementById("TextInput").value = "Init"
+  document.getElementById("Header").innerHTML = "Init"
   liff
     .init({
       liffId: myLiffId,
@@ -39,7 +39,7 @@ function initializeLiff(myLiffId) {
     .then(() => {
       const profile = liff.getContext()
       const userId = profile.userId
-      document.getElementById("TextInput").value = userId
+      document.getElementById("Header").innerHTML = userId
       liff
         .sendMessages([
           {
