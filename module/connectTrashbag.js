@@ -17,11 +17,7 @@ async function connectTrashbag(Context, UserId, message) {
       {
         type: "text",
         text: `Trashbag berhasil tersambung`,
-      },
-      {
-        type: "text",
-        text: JSON.stringify(hasil),
-      },
+      }
     ])
     console.log("Hasil ",hasil);
   })
