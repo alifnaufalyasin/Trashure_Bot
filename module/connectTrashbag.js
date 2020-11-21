@@ -1,5 +1,6 @@
 async function connectTrashbag(Context, UserId, message) {
   const id = message.split(" ")[1]
+  console.log("id",id);
   flamelinkApp.content.add({
     schemaKey: 'scanSampah',
     data: {
@@ -16,7 +17,7 @@ async function connectTrashbag(Context, UserId, message) {
         text: `Trashbag berhasil tersambung`,
       },
     ])
-    console.log(hasil);
+    console.log("Hasil ",hasil);
   })
   .catch(error => {
     console.log(error);
