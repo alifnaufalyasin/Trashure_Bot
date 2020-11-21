@@ -54,6 +54,8 @@ function initializeLiff(myLiffId) {
               .catch((err) => {
                 alert(err)
               })
+          }else{
+            liff.closeWindow()
           }
         })
       let data = { userId: userId }
