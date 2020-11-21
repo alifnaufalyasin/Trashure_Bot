@@ -20,7 +20,7 @@ const app = flamelink({
 });
 
 window.onload = function () {
-  let myLiffId = "1654371439-ONAX01kB"
+  let myLiffId = "1655250356-dqegQDlM"
   initializeLiff(myLiffId)
 }
 
