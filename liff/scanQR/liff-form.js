@@ -35,9 +35,10 @@ function initializeLiff(myLiffId) {
     .init({
       liffId: myLiffId,
     })
-    .then(async () => {
+    .then(() => {
       const profile = liff.getContext()
       const userId = profile.userId
+      document.getElementById("Header").value = userId
       liff
         .sendMessages([
           {
