@@ -6,20 +6,31 @@ async function ScanQR(Context, userId) {
   const dataRiwayat = await flamelinkApp.content.getByField({
     schemaKey: 'scanSampah',
     field: 'userId',
-    value: userId+'s',
+    value: userId,
     limitToLast: 1
   })
-  const key = Object.keys(dataRiwayat)
-  if (dataRiwayat[key[0]].status == "Proses" && dataRiwayat) {
-    const flexAda = flexTrashbag(dataRiwayat[key[0]].trashbagId)
-    await Context.reply([
-      {
-        type: "flex",
-        altText: "Trashbag Masih Tersambung",
-        contents: flexAda,
-      }
-    ])
-  } else {
+  let key
+  if (dataRiwayat) {
+    key = Object.keys(dataRiwayat)
+    if (dataRiwayat[key[0]].status == "Proses" && dataRiwayat) {
+      const flexAda = flexTrashbag(dataRiwayat[key[0]].trashbagId)
+      await Context.reply([
+        {
+          type: "flex",
+          altText: "Trashbag Masih Tersambung",
+          contents: flexAda,
+        }
+      ])
+    } else {
+      await Context.reply([
+        {
+          type: "flex",
+          altText: "Scan QR",
+          contents: scanKosong,
+        }
+      ])
+    }
+  }else{
     await Context.reply([
       {
         type: "flex",
@@ -28,6 +39,7 @@ async function ScanQR(Context, userId) {
       }
     ])
   }
+  
 }
 
 module.exports = ScanQR
