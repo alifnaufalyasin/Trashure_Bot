@@ -3,6 +3,7 @@ const flexHarga = require("../flex/hargaFlex");
 
 //module
 const Riwayat = require("../module/riwayat");
+const ScanQR = require("../module/scan")
 
 
 async function handleMessage(Context) {
@@ -37,6 +38,9 @@ async function handleMessage(Context) {
         break
       case "riwayat":
         await Riwayat(Context, userId)
+        break
+      case "scan":
+        await ScanQR(Context, userId)
         break
       default :
       Context.reply([
