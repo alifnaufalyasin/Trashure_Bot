@@ -1,3 +1,5 @@
+const flamelinkApp = require('../config/flamelink')
+
 async function connectTrashbag(Context, UserId, message) {
   const id = message.split(" ")[1]
   console.log("id",id);
@@ -15,6 +17,10 @@ async function connectTrashbag(Context, UserId, message) {
       {
         type: "text",
         text: `Trashbag berhasil tersambung`,
+      },
+      {
+        type: "text",
+        text: JSON.stringify(hasil),
       },
     ])
     console.log("Hasil ",hasil);

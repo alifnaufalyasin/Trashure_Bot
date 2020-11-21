@@ -1,7 +1,6 @@
 const bodyParser = require("body-parser")
 const express = require("express")
 const { bottender } = require("bottender")
-const getInstagramPhoto = require('get-instagram-photo')
 
 const app = bottender({
   dev: process.env.NODE_ENV !== "production",
