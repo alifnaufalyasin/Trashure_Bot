@@ -4,7 +4,7 @@ async function connectTrashbag(Context, UserId, message) {
     schemaKey: 'scanSampah',
     data: {
       userId: "Ua2faf57f45fddebd81410b69c29f342c",
-      trashbagId: "2654B398NO",
+      trashbagId: "2654B398PO",
       tanggal: Date.now(),
       status: "Proses"
     }
