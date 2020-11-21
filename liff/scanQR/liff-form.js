@@ -39,7 +39,7 @@ function initializeLiff(myLiffId) {
       liff.scanCode()
         .then((result) => {
           const kode = result.value
-          if (kode != null){
+          if (!result){
             liff
               .sendMessages([
                 {
