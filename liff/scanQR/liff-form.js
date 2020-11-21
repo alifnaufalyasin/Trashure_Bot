@@ -29,7 +29,6 @@ window.onload = function () {
  * @param {string} myLiffId The LIFF ID of the selected element
  */
 function initializeLiff(myLiffId) {
-  document.getElementById("Header").innerHTML = "Init"
   liff
     .init({
       liffId: myLiffId,
@@ -37,21 +36,6 @@ function initializeLiff(myLiffId) {
     .then(() => {
       const profile = liff.getContext()
       const userId = profile.userId
-      document.getElementById("Header").innerHTML = userId
-      liff
-        .sendMessages([
-          {
-            type: "text",
-            text: JSON.stringify(profile),
-          },
-        ])
-        .then(() => {
-          console.log("message sent")
-          liff.closeWindow()
-        })
-        .catch((err) => {
-          alert(err)
-        })
       liff.scanCode()
         .then((result) => {
           const kode = result.value
@@ -59,7 +43,7 @@ function initializeLiff(myLiffId) {
             .sendMessages([
               {
                 type: "text",
-                text: kode,
+                text: "TrashID: "+kode,
               },
             ])
             .then(() => {
