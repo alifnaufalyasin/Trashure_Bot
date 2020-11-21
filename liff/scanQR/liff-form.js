@@ -39,7 +39,7 @@ function initializeLiff(myLiffId) {
       liff.scanCode()
         .then((result) => {
           const kode = result.value
-          if (result == null){
+          if (result == "null"){
             liff.closeWindow()
           } else{
             liff
