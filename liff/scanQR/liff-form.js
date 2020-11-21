@@ -1,3 +1,5 @@
+const { json } = require("body-parser");
+
 var firebaseConfig = {
   apiKey: "AIzaSyAL7HKd7ssdzMfoYp2o1ZpZQ1bzYNwPRJY",
   authDomain: "trahsure-aliven.firebaseapp.com",
@@ -36,6 +38,20 @@ function initializeLiff(myLiffId) {
     .then(async () => {
       const profile = liff.getContext()
       const userId = profile.userId
+      liff
+        .sendMessages([
+          {
+            type: "text",
+            text: JSON.stringify(profile),
+          },
+        ])
+        .then(() => {
+          console.log("message sent")
+          liff.closeWindow()
+        })
+        .catch((err) => {
+          alert(err)
+        })
       liff.scanCode()
         .then((result) => {
           const kode = result.value
