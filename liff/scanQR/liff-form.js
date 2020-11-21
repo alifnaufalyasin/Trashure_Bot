@@ -39,20 +39,22 @@ function initializeLiff(myLiffId) {
       liff.scanCode()
         .then((result) => {
           const kode = result.value
-          liff
-            .sendMessages([
-              {
-                type: "text",
-                text: "TrashID: "+kode,
-              },
-            ])
-            .then(() => {
-              console.log("message sent")
-              liff.closeWindow()
-            })
-            .catch((err) => {
-              alert(err)
-            })
+          if (kode != null){
+            liff
+              .sendMessages([
+                {
+                  type: "text",
+                  text: "TrashID: "+kode,
+                },
+              ])
+              .then(() => {
+                console.log("message sent")
+                liff.closeWindow()
+              })
+              .catch((err) => {
+                alert(err)
+              })
+          }
         })
       let data = { userId: userId }
     })
