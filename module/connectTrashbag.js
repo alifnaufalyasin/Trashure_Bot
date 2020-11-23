@@ -1,15 +1,18 @@
-const flamelinkApp = require('../config/flamelink')
+const flamelinkApp = require('../config/flamelink');
+const getUserId = require('../utils/getUserId');
 
-async function connectTrashbag(Context, UserId, message) {
+
+async function connectTrashbag(Context, userId, message) {
   const id = message.split(" ")[1]
   console.log("id",id);
+  const idUser = await getUserId(userId)
   flamelinkApp.content.add({
-    schemaKey: 'scanSampah',
+    schemaKey: 'trashbag',
     data: {
-      userId: "Ua2faf57f45fddebd81410b69c29f342c",
       trashbagId: id,
       tanggal: Date.now(),
-      status: "Proses"
+      status: "Proses",
+      userId: idUser
     }
   })
   .then(hasil => {

@@ -1,15 +1,17 @@
 const flamelinkApp = require('../config/flamelink');
 const riwayatFlex = require('../flex/riwayatFlex');
+const getUserId = require('../utils/getUserId');
 
 async function Riwayat(Context, userId) {
   // const dataRiwayat = await flamelinkApp.content.get({
   //   schemaKey: 'scanSampah',
   //   filters: [['userId', '==', userId]]
   // })
+  const idUser = await getUserId(userId)
   const dataRiwayat = await flamelinkApp.content.getByField({
-    schemaKey: 'scanSampah',
+    schemaKey: 'trashbag',
     field: 'userId',
-    value: userId,
+    value: idUser,
     limitToLast: 15,
     // limitToFirst: 1,
     // filters: [['tanggal', '>', 160500433660]]

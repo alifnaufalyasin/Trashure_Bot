@@ -5,13 +5,14 @@ const flexHarga = require("../flex/hargaFlex");
 const Riwayat = require("../module/riwayat");
 const ScanQR = require("../module/scan")
 const connectTrashbag = require("../module/connectTrashbag");
+const addUser = require("../module/addUser");
 
 
 async function handleMessage(Context) {
   const message = Context.event.message
   let profileUser = await Context.getUserProfile()
   let userId = profileUser.userId
-  console.log(userId);
+  addUser(userId, profileUser.displayName, profileUser.pictureUrl)
 
   if (message.type !== "text") {
     Context.reply([

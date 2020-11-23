@@ -9,7 +9,7 @@ async function handlePostback(Context) {
   const data = Context.event.postback.data.split('=')
   let id_organisasi
   switch (data[0]) {
-    case 'postback':
+    case 'tambahTrashbag':
       break;
     default:
       console.log('gatau')

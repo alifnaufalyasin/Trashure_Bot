@@ -33,8 +33,8 @@ function flexTrashbag(id) {
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "Putuskan Sambungan",
-            "data": "putusTrashbag="+id
+            "label": "Tambah trashbag lagi?",
+            "data": "tambahTrashbag"
           },
           "color": "#8BC34A",
           "height": "md",
