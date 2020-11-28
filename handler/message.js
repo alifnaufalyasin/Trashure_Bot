@@ -6,6 +6,7 @@ const Riwayat = require("../module/riwayat");
 const ScanQR = require("../module/scan")
 const connectTrashbag = require("../module/connectTrashbag");
 const addUser = require("../module/addUser");
+const akun = require("../module/akun");
 
 
 async function handleMessage(Context) {
@@ -43,6 +44,9 @@ async function handleMessage(Context) {
         break
       case "scan":
         await ScanQR(Context, userId)
+        break
+      case "akun":
+        await akun(Context, userId, profileUser.displayName)
         break
       default :
         if (message.text.toLowerCase().match(/trashid:/g)){

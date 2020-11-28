@@ -23,7 +23,7 @@ async function addUser(userId, nama, imageURL) {
       schemaKey: 'user',
       entryId: id,
       data: {
-        nama: nama,
+        // nama: nama,
         fotoProfile: imageURL
       }
     })

@@ -68,8 +68,8 @@ function riwayatFlex(data) {
       const date = new Date(data[keys[x]].tanggal)
       let dd = date.getDate()
       dd = String(dd).padStart(2, '0');
-      let mm = date.getMonth()
-      mm = String(dd).padStart(2, '0');
+      let mm = date.getMonth() + 1
+      mm = String(mm).padStart(2, '0');
       let yyyy = date.getFullYear()
       const isi = {
         "type": "box",

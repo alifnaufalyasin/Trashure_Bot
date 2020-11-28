@@ -15,7 +15,19 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/flamelink/flamelink.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+		<!-- <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-analytics.js"></script> -->
+		<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-storage.js"></script>
     <title>Form Create Akun</title>
   </head>
   <body>
@@ -62,13 +74,12 @@
           />
         </div>
         <div class="form-group">
-          <label for="inputWarung">Password</label>
+          <label for="inputWarung">Tanggal Lahir</label>
           <input
-            type="password"
-            name="Password"
+            type="date"
+            name="tanggalLahir"
             class="form-control"
-            id="inputPassword"
-            placeholder="Password"
+            id="inputTanggalLahir"
             required
           />
         </div>
@@ -85,9 +96,8 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" 
       crossorigin="anonymous"
     ></script>
     <script
@@ -101,9 +111,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
     <script type="text/javascript" src="./liff-form.js"></script>
   </body>
 </html>
