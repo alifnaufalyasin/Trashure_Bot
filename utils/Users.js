@@ -10,4 +10,17 @@ async function getUserId(userId) {
   return idUser
 }
 
-module.exports = getUserId
+async function getUser(userId) {
+  const User = await flamelinkApp.content.getByField({
+    schemaKey: 'user',
+    field: 'userId',
+    value: userId
+  })
+  const idUser = Object.keys(User)[0]
+  return {User, idUser}
+}
+
+module.exports = {
+  getUserId,
+  getUser
+}

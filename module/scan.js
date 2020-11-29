@@ -1,10 +1,10 @@
 const flamelinkApp = require('../config/flamelink')
 const flexTrashbag = require('../flex/adaTrashbag')
 const scanKosong = require('../flex/scanKosong')
-const getUserId = require('../utils/getUserId')
+const Users = require('../utils/Users')
 
 async function ScanQR(Context, userId) {
-  const idUser = await getUserId(userId)
+  const idUser = await Users.getUserId(userId)
   const dataRiwayat = await flamelinkApp.content.getByField({
     schemaKey: 'trashbag',
     field: 'userId',

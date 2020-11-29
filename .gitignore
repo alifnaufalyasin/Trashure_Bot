@@ -61,5 +61,6 @@ typings/
 
 # dotenv environment variables file
 .env
+.sessions
 
 serviceAccountKey.json

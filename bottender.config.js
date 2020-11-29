@@ -1,9 +1,10 @@
 module.exports = {
   session: {
-    driver: 'memory',
+    driver: 'file',
+    expiresIn: 60 * 6,
     stores: {
       memory: {
-        maxSize: 500,
+        maxSize: 1000,
       },
       file: {
         dirname: '.sessions',

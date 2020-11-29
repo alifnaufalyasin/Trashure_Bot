@@ -1,11 +1,11 @@
 const flamelinkApp = require('../config/flamelink');
-const getUserId = require('../utils/getUserId');
+const Users = require('../utils/Users');
 
 
 async function connectTrashbag(Context, userId, message) {
   const id = message.split(" ")[1]
   console.log("id",id);
-  const idUser = await getUserId(userId)
+  const idUser = await Users.getUserId(userId)
   flamelinkApp.content.add({
     schemaKey: 'trashbag',
     data: {

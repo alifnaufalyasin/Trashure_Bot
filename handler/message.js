@@ -1,7 +1,10 @@
 //flex
 const flexHarga = require("../flex/hargaFlex");
+const penukaranFlex = require('../flex/pilihPenukaran')
 
 //module
+
+
 const Riwayat = require("../module/riwayat");
 const ScanQR = require("../module/scan")
 const connectTrashbag = require("../module/connectTrashbag");
@@ -14,8 +17,9 @@ async function handleMessage(Context) {
   let profileUser = await Context.getUserProfile()
   let userId = profileUser.userId
   addUser(userId, profileUser.displayName, profileUser.pictureUrl)
+  if (Context.event.follow || Context.event.unfollow){
 
-  if (message.type !== "text") {
+  } else if (message.type !== "text") {
     Context.reply([
       {
         type: "text",
@@ -25,7 +29,6 @@ async function handleMessage(Context) {
   } else {
     switch (message.text.toLowerCase()) {
       case "harga":
-        const awal = Date.now()
         const HargaFlex = await flexHarga()
         await Context.reply([
           {
@@ -34,10 +37,6 @@ async function handleMessage(Context) {
             contents: HargaFlex,
           }
         ])
-        const akhir = Date.now()
-        console.log(awal)
-        console.log(akhir)
-        console.log(akhir-awal)
         break
       case "riwayat":
         await Riwayat(Context, userId)
@@ -48,11 +47,21 @@ async function handleMessage(Context) {
       case "akun":
         await akun(Context, userId, profileUser.displayName)
         break
+      case "penukaran":
+        const flex = penukaranFlex
+        await Context.reply([
+          {
+            type: "flex",
+            altText: "Pilih Penukaran",
+            contents: flex,
+          }
+        ])
+        break
       default :
         if (message.text.toLowerCase().match(/trashid:/g)){
           await connectTrashbag(Context, userId, message.text)
         }else if (message.text.toLowerCase().match(/identitas tersimpan/g)){
-          
+
         }else{
           Context.reply([
             {
