@@ -14,10 +14,8 @@
     "firebase-admin": "^9.3.0",
     "flamelink": "^1.0.0-alpha.34",
     "jest": "^26.0.1",
-    "map-expire": "0.0.6",
     "midtrans-client": "^1.2.1",
-    "prettier": "^2.0.5",
-    "redis": "^3.0.2"
+    "prettier": "^2.0.5"
   },
   "devDependencies": {},
   "scripts": {
