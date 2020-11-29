@@ -15,7 +15,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/flamelink/flamelink.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -36,7 +36,7 @@
       <!-- enctype='application/x-www-form-urlencoded' -->
       <form
         id="formDetails"
-        action="/"
+        action="/saveAkun"
         method="POST"
         enctype="application/x-www-form-urlencoded"
       >
@@ -74,7 +74,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="inputWarung">Tanggal Lahir</label>
+          <label for="inputTanggalLahir">Tanggal Lahir</label>
           <input
             type="date"
             name="tanggalLahir"
@@ -83,6 +83,14 @@
             required
           />
         </div>
+
+        <input
+            type="text"
+            name="idUser"
+            class="form-control"
+            id="inputIdUser"
+            hidden
+          />
 
         <button
           id="btnSubmit"

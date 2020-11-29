@@ -51,6 +51,8 @@ async function handleMessage(Context) {
       default :
         if (message.text.toLowerCase().match(/trashid:/g)){
           await connectTrashbag(Context, userId, message.text)
+        }else if (message.text.toLowerCase().match(/identitas tersimpan/g)){
+          
         }else{
           Context.reply([
             {
