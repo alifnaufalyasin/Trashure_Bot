@@ -1,5 +1,5 @@
 
-function flexTrashbag(id) {
+function flexTrashbag(id,idTrashbag) {
   flex = {
     "type": "bubble",
     "direction": "ltr",
@@ -33,8 +33,8 @@ function flexTrashbag(id) {
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "Tambah trashbag lagi?",
-            "data": "tambahTrashbag"
+            "label": "Putuskan Sambungan",
+            "data": "putusTrashbag="+idTrashbag
           },
           "color": "#8BC34A",
           "height": "md",

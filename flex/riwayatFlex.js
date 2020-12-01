@@ -71,6 +71,7 @@ function riwayatFlex(data) {
       let mm = date.getMonth() + 1
       mm = String(mm).padStart(2, '0');
       let yyyy = date.getFullYear()
+      const status = data[keys[x]].status.split('-')
       const isi = {
         "type": "box",
         "layout": "horizontal",
@@ -134,7 +135,7 @@ function riwayatFlex(data) {
             "contents": [
               {
                 "type": "text",
-                "text": data[keys[x]].status,
+                "text": status[0],
                 "size": "md",
                 "color": "#8BC34A",
                 "flex": 4,

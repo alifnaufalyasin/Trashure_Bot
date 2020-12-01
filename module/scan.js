@@ -15,7 +15,7 @@ async function ScanQR(Context, userId) {
   if (dataRiwayat) {
     key = Object.keys(dataRiwayat)
     if (dataRiwayat[key[0]].status == "Proses" && dataRiwayat) {
-      const flexAda = flexTrashbag(dataRiwayat[key[0]].trashbagId)
+      const flexAda = flexTrashbag(dataRiwayat[key[0]].trashbagId,key[0])
       await Context.reply([
         {
           type: "flex",

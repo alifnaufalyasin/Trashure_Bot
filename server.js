@@ -2,6 +2,9 @@ const bodyParser = require("body-parser")
 const express = require("express")
 const { bottender } = require("bottender")
 const flamelinkApp = require('./config/flamelink')
+const cron = require("node-cron")
+
+const { updateDataUser } = require('./utils/Users')
 
 const app = bottender({
   dev: process.env.NODE_ENV !== "production",
@@ -104,3 +107,16 @@ app.prepare().then(() => {
     console.log(`> Ready on http://localhost:${port}`)
   })
 })
+
+// cron
+cron.schedule("0 */1 * * * *", async function () {
+  await updateDataUser()
+})
+
+//Biar warning ga keluar
+process.stderr.write = (function(write) {
+  return function() {
+    if (!arguments[0].includes("FIREBASE WARNING"))
+      write.apply(process.stderr, arguments);
+  };
+}(process.stderr.write));
