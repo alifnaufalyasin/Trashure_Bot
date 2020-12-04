@@ -13,11 +13,11 @@ function initializeLiff(myLiffId) {
       liffId: myLiffId
     })
     .then(() => {
-      // if (liff.isInClient()){
+      if (liff.isInClient()){
         window.location = "./form.html"
-      // }else{
-      //   window.location = "../index.html"
-      // }
+      }else{
+        window.location = "../index.html"
+      }
     })
     .catch(err => {
       window.location = "./"
