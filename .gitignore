@@ -64,3 +64,4 @@ typings/
 .sessions
 
 serviceAccountKey.json
+web.js
