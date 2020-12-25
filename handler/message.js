@@ -10,6 +10,7 @@ const ScanQR = require("../module/scan")
 const connectTrashbag = require("../module/connectTrashbag");
 const addUser = require("../module/addUser");
 const akun = require("../module/akun");
+const home = require("../module/home");
 
 
 async function handleMessage(Context) {
@@ -56,6 +57,9 @@ async function handleMessage(Context) {
             contents: flex,
           }
         ])
+        break
+      case "beranda":
+        await home(Context, userId)
         break
       default :
         if (message.text.toLowerCase().match(/trashid:/g)){
