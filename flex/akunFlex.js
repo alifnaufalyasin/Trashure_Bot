@@ -185,6 +185,20 @@ function akunFlex(User) {
               "contents": []
             }
           ]
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "Edit Akun",
+            "uri": "https://liff.line.me/1655250356-8OMObjyN"
+          },
+          "color": "#8BC34A",
+          "margin": "xl",
+          "height": "md",
+          "style": "primary",
+          "gravity": "center",
+          "offsetTop": "md"
         }
       ]
     }
