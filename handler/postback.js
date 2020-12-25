@@ -11,6 +11,7 @@ const flamelinkApp = require('../config/flamelink');
 const moduleNominal = require("../module/nominal");
 const { getLastTrashbag } = require('../utils/Trashbag');
 const { getUserId } = require('../utils/Users');
+const riwayatPenukaran = require('../module/riwayatPenukaran');
 
 async function handlePostback(Context) {
   let profileUser = await Context.getUserProfile()
@@ -21,7 +22,7 @@ async function handlePostback(Context) {
   switch (text[0]) {
     case 'penukaran':
       if (text[1] == "riwayat"){
-
+        await riwayatPenukaran(Context, userId)
       }else{
         const flex = walletFlex
         await Context.reply([
@@ -58,7 +59,6 @@ async function handlePostback(Context) {
       }
       break
     case 'konfirmasi':
-      console.log(Date.now());
       const waktu = Date.now() - Context.state.tukar
       if(Context.state.tukar && waktu > (1000*60*5)){
         await penukaran(Context, userId)
@@ -79,7 +79,7 @@ async function handlePostback(Context) {
         Context.reply([
           {
             type: "text",
-            text: "Anda telah melakukan penarikan "+menit+" menit " + detik + " detik yang lalu",
+            text: "Anda telah melakukan penarikan "+menit+" menit " + detik + " detik yang lalu, mohon tunggu setelah 5 menit",
           },
         ])
       }

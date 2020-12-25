@@ -9,13 +9,14 @@ async function penukaran(Context, userId) {
       userId: idUser,
       tanggal: Date.now(),
       nominal: Number(Context.state.nominal),
+      nomor: User[idUser].nomorTelpon,
       tipe: Context.state.tipe
     }
   })
   Context.reply([
     {
       type: "text",
-      text: "Penukaran sedang di proses",
+      text: "Penukaran Berhasil",
     },
   ])
 }

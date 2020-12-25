@@ -44,7 +44,7 @@ const getProfile = () => {
       document.getElementById("displayNameField").textContent =
         "Hai, " + profile.displayName
       document.getElementById("inputNama").value = profile.displayName
-      axios.get(`/getUser/Ua2faf57f45fddebd81410b69c29f342c`)
+      axios.get(`/getUser/${profile.userId}`)
       .then(User => {
         document.getElementById("inputNomor").value = User.data.nomorTelpon
         document.getElementById("inputEmail").value = User.data.email

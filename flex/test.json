@@ -1,0 +1,140 @@
+{
+  "type": "bubble",
+  "direction": "ltr",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Riwayat Penukaran",
+        "weight": "bold",
+        "size": "xl",
+        "color": "#8BC34A",
+        "align": "center",
+        "contents": []
+      },
+      {
+        "type": "separator",
+        "margin": "md",
+        "color": "#8BC34A"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://firebasestorage.googleapis.com/v0/b/trahsure-aliven.appspot.com/o/flamelink/media/sized/300_9999_100/Dana.png?alt=media&token=7d468798-21ea-4e19-a344-2136c66567d1",
+            "flex": 3,
+            "align": "start",
+            "size": "xs"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 7,
+            "contents": [
+              {
+                "type": "text",
+                "text": "Saldo DANA",
+                "weight": "bold",
+                "gravity": "center",
+                "contents": []
+              },
+              {
+                "type": "text",
+                "text": "Saldo dana sebesar 25000 berhasil ditukarkan",
+                "size": "xs",
+                "gravity": "center",
+                "wrap": true,
+                "contents": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "separator",
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://firebasestorage.googleapis.com/v0/b/trahsure-aliven.appspot.com/o/flamelink/media/sized/300_9999_100/Pulsa.png?alt=media&token=899c71a1-5c6b-4938-8297-77362b82a658",
+            "flex": 3,
+            "align": "start",
+            "size": "xs"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 7,
+            "contents": [
+              {
+                "type": "text",
+                "text": "Penukaran Pulsa",
+                "weight": "bold",
+                "gravity": "center",
+                "contents": []
+              },
+              {
+                "type": "text",
+                "text": "Penukaran pulsa 150000 dengan nomor kartu Tri berhasil",
+                "size": "xs",
+                "gravity": "center",
+                "wrap": true,
+                "contents": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "separator",
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://firebasestorage.googleapis.com/v0/b/trahsure-aliven.appspot.com/o/flamelink/media/sized/300_9999_100/Ovo.png?alt=media&token=386cf4db-e7ff-4ad3-b969-ceae2b58f7db",
+            "flex": 3,
+            "align": "start",
+            "size": "xs"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 7,
+            "contents": [
+              {
+                "type": "text",
+                "text": "Saldo OVO",
+                "weight": "bold",
+                "gravity": "center",
+                "contents": []
+              },
+              {
+                "type": "text",
+                "text": "Saldo ovo sebesar 25000 berhasil ditukarkan",
+                "size": "xs",
+                "gravity": "center",
+                "wrap": true,
+                "contents": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
