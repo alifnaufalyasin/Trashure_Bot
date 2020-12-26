@@ -19,6 +19,7 @@ async function beritaFlex() {
   const bubble = []
   for (let i = key.length-1; i >= 0; i--) {
     console.log(berita[key[i]].judul);
+    const judul = encodeURI(berita[key[i]].judul)
     isi = {
       "type": "bubble",
       "body": {
@@ -27,7 +28,7 @@ async function beritaFlex() {
         "spacing": "md",
         "action": {
           "type": "uri",
-          "uri": "https://google.com"
+          "uri": "https://5d0243351a87.ngrok.io/berita/?judul="+judul
         },
         "width": "300px",
         "height": "230px",

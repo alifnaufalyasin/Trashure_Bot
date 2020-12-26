@@ -3,6 +3,7 @@ const express = require("express")
 const { bottender } = require("bottender")
 const flamelinkApp = require('./config/flamelink')
 const cron = require("node-cron")
+var mustacheExpress = require('mustache-express');
 
 const { updateDataUser } = require('./utils/Users')
 
@@ -25,7 +26,9 @@ app.prepare().then(() => {
       },
     })
   )
-
+  server.engine('html', mustacheExpress());
+  server.set('view engine', 'html');
+  server.set('views', __dirname + '/views');
   // your custom route
   server.use(bodyParser.urlencoded({extended:true}))
   server.use(bodyParser.json())
@@ -96,6 +99,26 @@ app.prepare().then(() => {
     })
   })
   
+  server.get("/berita", async (req,res,next)=>{
+    const judul = req.query.judul
+    let Berita = await flamelinkApp.content.getByField({
+      schemaKey: 'berita',
+      field: 'judul',
+      value: judul,
+      populate: [{
+        field: 'gambar'
+      }]
+    })
+    const key = Object.keys(Berita)
+    const date = new Date(Berita[key[0]].tanggal)
+    let dd = date.getDate()
+    dd = String(dd).padStart(2, '0');
+    let mm = date.getMonth()
+    mm = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][mm]
+    let yyyy = date.getFullYear()
+    res.render('berita',{judul: Berita[key[0]].judul, image: Berita[key[0]].gambar[0].url, tanggal: `${dd} ${mm}, ${yyyy}`, body: Berita[key[0]].body})
+  })
+
 
   // route for webhook request
   server.all("*", (req, res) => {
