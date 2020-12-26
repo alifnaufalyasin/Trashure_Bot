@@ -28,7 +28,7 @@ async function beritaFlex() {
         "spacing": "md",
         "action": {
           "type": "uri",
-          "uri": "https://5d0243351a87.ngrok.io/berita/?judul="+judul
+          "uri": "https://trashure.aliven.my.id/berita/?judul="+judul
         },
         "width": "300px",
         "height": "230px",
